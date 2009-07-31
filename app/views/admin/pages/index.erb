@@ -1,0 +1,32 @@
+<% @page_title = 'Site Structure' %>
+
+<p>Here you can manage the site&#8217;s navigation and content.</p>
+
+<table id="site-map" class="tree_table index">
+<thead>
+  <tr>
+    <th>Title</th>
+    <th>Children</th>
+    <th width="100">Type</th>
+    <th width="120">&nbsp;</th>
+    <th width="100">&nbsp;</th>
+    <th width="70">&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+<%= page_rows @pages %>
+</tbody>
+</table>
+
+
+<div class="dialog" id="new_page_dialog" title="Create a new page">
+<% create_form do |f| %>
+  <%= render 'new_form', :f => f %>
+  <div>
+    <label>Choose page type:</label><br />
+    <select name="type" id="type_select">
+    </select>
+  </div>  
+  <button>Create Page</button>
+<% end %>
+</div>

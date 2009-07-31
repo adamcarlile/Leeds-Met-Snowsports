@@ -1,0 +1,76 @@
+<% content_for :head do %>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$(function() { 
+	    var rotateDelay = 4000; //milliseconds 
+	    var rotateTabs=true;     
+	    var $tabItems = $('div#player ul li').click(function(){ //clicking a tab should cancel the rotate 
+	        rotateTabs=false; 
+	    }); 
+	    var tabs = $("div#player ul").tabs('div#player div.panes > div', {api:true, effect: 'fade'}); //create the tabs and return the api 
+	    function doRotateTabs(){ //recursive function 
+	        if (rotateTabs) { 
+	            setTimeout(function(){ 
+	                if (!rotateTabs) return; 
+	                if(tabs.getIndex() == $tabItems.length-1){ //last tab. restart on first tab 
+	                    tabs.click(0); 
+	                } 
+	                else { 
+	                    tabs.next(); 
+	                } 
+	                doRotateTabs(); 
+	            }, rotateDelay); 
+	        } 
+	    } 
+	    doRotateTabs(); 
+	});
+	
+		
+	$('div.movie').flash({
+		swf: '/flash/assets/swfplayer/player.swf',
+		height: 353,
+		width: 629,
+		wmode: 'transparent',
+		flashvars: {
+			file: '/flash/assets/snowsports_promo_09.flv',
+			controlbar: 'over',
+			image: '/flash/assets/snowsports_promo_09.jpg'
+			}
+	});
+	
+	
+	
+	$('ul#promos li p').css('right', '-250px');
+	
+	var onMouseOver = function() { 
+		$(this).stop();
+		$(this).find('p').stop().animate({right: '0px'}, 200)
+	};
+	
+	var onMouseOut = function() { 
+		$(this).find('p').stop().animate({right: '-250px'}, 200)
+	};
+	
+	$('ul#promos li').hover(onMouseOver, onMouseOut);
+	
+	
+});
+</script>
+<% end %>
+<%= render :partial => 'layouts/shared/header' %>
+<div class="wrapper">
+  	<%= render_breadcrumb %>
+  	<%= render_flash %>
+	<%= render :partial => 'public/shared/player' %>
+	<ul id="promos">
+  	<% @promos_bottom.each do |promo| %>
+		<li class="<%= cycle('blue','yellow','pink') %>">
+			<h4><%= link_to s(promo.title), (if promo.page : view_page_path(promo.page.slug_path) else '#' end)  %></h4>
+			<p><%= promo.intro %></p>
+			<%= link_to (image_tag promo.image.url(:medium)), (if promo.page : view_page_path(promo.page.slug_path) else '#' end) %>
+		</li>
+	<% end %>
+	</ul>
+</div>
+<%= render :partial => 'layouts/shared/footer' %>

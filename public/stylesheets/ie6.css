@@ -1,0 +1,29 @@
+/* 
+	Sitename
+	designed and created by name
+*/
+/*
+	for all version of IE css document
+*/
+form#enquiry_form input.text_field, form#enquiry_form textarea.text_area, form#enquiry_form select {
+	margin-bottom: -8px;
+}
+ol#questions {	
+	list-style-position: inside;
+}
+
+/*
+	The following fixes png-transparency for IE6.  
+	It is also necessary for png-transparency to cooperate with the fade transition in IE7 & IE8
+	
+	Since this method does not support CSS background-positioning, it is incompatible with CSS sprites.  
+	Colorbox preloads navigation hover classes to account for this.
+*/
+* html #cboxTopLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderTopLeft.png, sizingMethod='scale');}
+* html #cboxTopCenter{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderTopCenter.png, sizingMethod='scale');}
+* html #cboxTopRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderTopRight.png, sizingMethod='scale');}
+* html #cboxBottomLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderBottomLeft.png, sizingMethod='scale');}
+* html #cboxBottomCenter{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderBottomCenter.png, sizingMethod='scale');}
+* html #cboxBottomRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderBottomRight.png, sizingMethod='scale');}
+* html #cboxMiddleLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderMiddleLeft.png, sizingMethod='scale');}
+* html #cboxMiddleRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/skin/lightbox/borderMiddleRight.png, sizingMethod='scale');}

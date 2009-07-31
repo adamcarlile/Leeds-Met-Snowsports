@@ -1,0 +1,10 @@
+<% @page_title = "Creating new #{@page.class.to_s.underscore.humanize.downcase}" %>
+
+<% create_form :multipart => true do |f| %>
+<fieldset>
+
+  <%= render 'new_form', :f => f %>
+
+</fieldset>
+<%= render 'admin/generic/resource_buttons' %>
+<% end %>

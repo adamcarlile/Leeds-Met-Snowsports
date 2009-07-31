@@ -1,0 +1,26 @@
+<fieldset>
+<%= f.field :title %><br />
+<%= f.field :subtitle %><br /><br />
+<%= f.label :parent_id, 'Promo Location' %><br />
+<div style="padding:10px; border:1px solid #000000; background-color:#ffffff; font-size:10px; width:150px; margin-bottom:20px;">
+<label style="padding-right:5px;" for="promo_location_top">Top<label><%= f.radio_button(:location, "top") %>
+<label style="padding-left:20px; padding-right:5px;" for="promo_location_bottom">Bottom</label><%= f.radio_button(:location, "bottom") %>
+</div>
+<%= f.label :parent_id, 'Associated Page' %><br />
+<select name="promo[page_id]" id="promo_page_id">
+  <option value="">None</option>
+  <%- @page.each do |item| %>
+  <option value="<%= item.id %>"<%= " selected='selected'" if item.id == @promo.page_id %>><%= item.title %></option>
+  <% end %>
+</select><br />
+<%= f.field :override_url %><br />
+<%= f.field(:intro, :helper => :text_area, :helper_options => {:cols => 60, :rows => 5}) %>
+</fieldset>
+<fieldset>
+	<legend>Image</legend>
+	<%= f.label :image, 'Promo Image' %><br />
+	<%= f.file_field :image %><br />
+	<%= image_tag(@promo.image.url(:main_promo)) if @promo.image %>
+</fieldset>
+
+<%= render 'admin/generic/resource_buttons' %>

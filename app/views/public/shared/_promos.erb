@@ -1,0 +1,15 @@
+<ul id="promos">
+<% @promos.each do |promo| %>
+	<li class="<%= cycle('blue','yellow','pink') %>">
+		<h4><%= link_to s(promo.title), (if promo.page : view_page_path(promo.page.slug_path) else promo.override_url end)  %></h4>
+		<div class="rollout">
+			<%= link_to (image_tag promo.image.url(:medium)), (if promo.page : view_page_path(promo.page.slug_path) else promo.override_url end) %>
+			<% if promo.intro %>
+			<div class="intro">
+				<p><%= promo.intro %></p>
+			</div>
+			<% end %>
+		</div>
+	</li>
+<% end %>
+</ul>

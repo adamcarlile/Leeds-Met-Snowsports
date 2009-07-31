@@ -1,0 +1,20 @@
+<div id="player">
+	<div class="panes">
+		<div class="movie">
+		</div>
+		<%- @promos_top.each do |promo| %>
+		<div>
+			<a href="<%= if promo.page : view_page_path(promo.page.slug_path) else '#' end %>">
+			<span><%= promo.intro %></span>
+			<%= image_tag promo.image.url(:main_promo) %>
+			</a>
+		</div>
+		<%- end %>
+	</div>
+	<ul class="buttons">
+		<li><h4>Snowsports? In Leeds?</h4><p>The 2009 snowsports promo movie</p><span class="arrow"></span></li>
+		<%- @promos_top.each do |promo| %>
+		<li><h4><%= promo.title %></h4><p><%= promo.subtitle %></p><span class="arrow"></span></li>
+		<%- end %>
+	</ul>
+</div>

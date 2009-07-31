@@ -1,0 +1,19 @@
+development:
+  adapter: mysql
+  database: rails_cms_dev
+  username: root
+  password: 
+  host: localhost
+
+test:
+  adapter: mysql
+  database: rails_cms_test
+  username: root
+  password: 
+
+production:
+  adapter: mysql
+  database: lmusnow_production
+  username: root
+  password: njh9x2
+  socket: /var/run/mysqld/mysqld.sock

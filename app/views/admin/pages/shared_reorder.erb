@@ -1,0 +1,20 @@
+<% 
+if @parent
+  @page_title = "Reordering child items for &#8220;#{@parent.title}&#8221; "
+else
+  @page_title = "Reordering root items"
+end
+ %>
+<fieldset>
+<ul id="items" class="sortable" data-remote="<%= reorder_admin_pages_path %>">
+<% for page in @pages %>
+  <li id="item_<%= page.id %>">
+    <%= image_tag('/images/admin/drag.gif', :class => 'drag') %> &nbsp; 
+    <%= page.nav_title %>
+  </li>
+<% end %>
+</ul>
+
+<p><%= link_to '&larr; Finished reordering', :action => 'index' %></p>
+
+</fieldset>

@@ -1,0 +1,594 @@
+/* 
+	Sitename
+	designed and created by name
+*/
+/*
+	general css document
+*/
+body {
+	font-size: 10px;
+	background-color:#FFFFFF;
+	color:#221e1f;
+	font-family:Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+
+a
+{
+	color:#41b3d3;
+}
+
+a:hover
+{
+	color:#ec2492
+}
+
+div.wrapper
+{
+	width:940px;
+	margin:auto;
+	text-align:left;
+	padding-bottom:20px;
+}
+
+div#header
+{
+	margin-top:20px;
+	position:relative;
+}
+
+div#header h1
+{
+	background-image: url('../skin/header/leedsmetsnowsports.jpg');
+	background-repeat: no-repeat;
+	background-position:bottom;
+	height:95px;
+	width:536px;
+	text-indent:-90000px;
+	padding-top:60px;
+}
+
+ul#main_navigation
+{
+	background-image: url('../skin/header/navbar_light.jpg');
+	overflow:hidden;
+	background-repeat: no-repeat;
+	margin-top:20px;
+}
+
+ul#main_navigation li
+{
+	float:left;
+}
+
+ul#main_navigation li a
+{
+	display:block;
+	width:150px;
+	text-align:center;
+	background-image: url('../skin/header/navdivider.gif');
+	background-position: right;
+	background-repeat: repeat-y;
+	font-size:1.4em;
+	font-weight:bold;
+	color:#ffffff;
+	text-decoration:none;
+	height:54px;
+	line-height:58px;
+}
+
+ul#main_navigation li a:hover
+{
+	background-image: url('../skin/header/navbar_dark.jpg');
+	background-position: center;
+	background-repeat:no-repeat;
+}
+
+ul#main_navigation li.first a:hover
+{
+	background-position: left;
+}
+
+ul#main_navigation li.last a:hover
+{
+	background-position: right;
+}
+
+ul#main_navigation li.current a
+{
+	background-image: url('../skin/header/navbar_pink.jpg');
+	background-position: center;
+	background-repeat:no-repeat;	
+}
+
+ul#main_navigation li.current.first a
+{
+	background-position: left;
+}
+
+ul#main_navigation li.current.last a
+{
+	background-position: right;
+}
+
+/*=============PROMOS=============*/
+
+ul#promos
+{
+	overflow:hidden;
+	margin-top:20px;
+}
+
+ul#promos li
+{
+	width:300px;
+	height:229px;
+	background-repeat: no-repeat;
+	float:left;
+	margin-left:20px;	
+	position:relative;
+	overflow:hidden;
+}
+
+ul#promos li:first-child
+{
+	margin-left:0px;
+}
+
+ul#promos li h4
+{
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+
+ul#promos li p
+{
+	position:absolute;
+	bottom:20px;
+	right:0px;
+	width:220px;
+	padding:10px;
+	color:#ffffff;
+	line-height:1.4em;
+	background-image:url('../skin/black_bg.png');
+}
+
+ul#promos li.blue
+{
+	background-image: url('../skin/callouts/blue.gif');
+}
+
+ul#promos li.yellow
+{
+	background-image: url('../skin/callouts/yellow.gif');
+}
+
+ul#promos li.pink
+{
+	background-image: url('../skin/callouts/pink.gif');
+}
+
+ul#promos li.blue h4
+{
+	background-image: url('../skin/bars/blue_bar.gif');
+}
+
+ul#promos li.yellow h4
+{
+	background-image: url('../skin/bars/yellow_bar.gif');
+}
+
+ul#promos li.pink h4
+{
+	background-image: url('../skin/bars/pink_bar.gif');
+}
+
+ul#promos li h4 a
+{
+	padding:15px;
+	padding-top:20px;
+	display:block;
+	color:#221e1f;
+	text-decoration:none;
+	font-size:2.4em;
+	letter-spacing:-1px;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+span.white
+{
+	color:#ffffff !important;
+}
+
+div#player
+{
+	margin-top:20px;
+	overflow:hidden;
+}
+
+div#player div.panes
+{
+	width:629px;
+	height:353px;
+	float:left;
+}
+
+div#player ul
+{
+	float:left;
+	width:309px;
+	border-left:1px solid #417280;
+	border-right:1px solid #417280;
+}
+
+div#player ul li
+{
+	display:block;
+	height: 69px;
+	background-image:url('../skin/blue_grad.png');
+	background-position:bottom;
+	background-repeat:repeat-x;
+	background-color:#48c7eb;
+	cursor:pointer;
+	border-top:1px solid #78e1ff;
+	border-bottom:1px solid #417280;
+	position:relative;
+	color:#ffffff;
+}
+
+div#player ul li h4
+{
+	padding-left:15px;
+	padding-top:15px;
+	font-size:2em;
+	letter-spacing:-1px;
+	padding-bottom:5px;
+}
+
+div#player ul li p
+{
+	padding-left:15px;
+	font-size:1.1em;
+}
+
+div#player ul li:hover
+{
+	background-image:url('../skin/blue_grad_dark.png');
+	background-color:#247b94;
+}
+
+div#player ul li.current
+{
+	background-image:url('../skin/pink_grad.png');
+	background-color:#ec2492;
+	border-bottom-color:#78385b;
+	border-top-color:#ff95cf;
+	height:67px;
+}
+
+div#player ul li.current span.arrow
+{
+	height:70px;
+	width:30px;
+	position:absolute;
+	top:0px;
+	left:-30px;
+	background-image:url('../skin/pink_arrow.png');
+}
+
+div#player div.panes
+{
+	background-color:#000000;
+}
+
+div#player div.panes div
+{
+	position:relative;
+}
+
+div#player div.panes div span
+{
+	width:500px;
+	background-image:url('../skin/black_bg.png');
+	color:#ffffff;
+	position:absolute;
+	left:0px;
+	bottom:20px;
+	padding:20px;
+	font-size:1.2em;
+	line-height:1.6em;
+}
+
+div#twitter
+{
+	background-image:url('../skin/callouts/twitter_top.gif');
+	background-position:top left;
+	background-repeat:no-repeat;
+	float:right;
+	width:300px;
+	position:absolute;
+	right:0px;
+	bottom:60px;
+}
+
+div#twitter div.inner
+{
+	background-image:url('../skin/callouts/twitter_bottom.gif');
+	background-position:bottom left;
+	background-repeat:no-repeat;
+	padding-bottom:40px;
+	margin-bottom:20px;
+}
+
+div#twitter div.inner p
+{
+	font-size:1.2em;
+	line-height:1.5em;
+	color:#41b3d3;
+	padding:15px;
+}
+
+div#twitter img
+{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+
+div#twitter p.twitter
+{
+	font-size:1.2em;
+	position:absolute;
+	bottom:20px;
+	left:3px;
+}
+
+/*=======PAGE=======*/
+
+div.left
+{
+	float:left;
+	width:629px;
+}
+
+div.right
+{
+	float:right;
+	width:309px;
+}
+
+div.right ul.nav
+{
+	padding-left:20px;
+}
+
+div.right ul.nav li
+{
+	display:block;
+	background-image:url('../skin/blue_grad.png');
+	background-position:bottom;
+	background-repeat:repeat-x;
+	background-color:#48c7eb;
+	cursor:pointer;
+	border-top:1px solid #78e1ff;
+	border-bottom:1px solid #417280;
+	position:relative;
+	color:#ffffff;
+}
+
+div.right ul.nav li a
+{
+	padding-left:15px;
+	padding-top:15px;
+	font-size:2em;
+	letter-spacing:-1px;
+	padding-bottom:10px;
+	border-left:1px solid #417280;
+	border-right:1px solid #417280;
+	display:block;
+	text-decoration:none;
+	color:#ffffff;
+}
+
+div.right ul.nav li.withsubnav 
+{
+	border-bottom:1px solid #9b9530;
+	border-right:none;
+	border-left:none;
+}
+
+div.right ul.nav li.withsubnav ul
+{
+	margin:0px;
+	padding:0px;
+	background-image:url('../skin/yellow_nav_bg.jpg');
+	background-position:top;
+	background-repeat:repeat-x;
+	background-color:#d3cb3c;
+	border-top:1px solid #000000;
+}
+
+div.right ul.nav li.withsubnav ul li
+{
+	border:0px;
+	background-image:none;
+	background-color:transparent;
+}
+
+div.right ul.nav li.withsubnav ul li a
+{
+	font-size:1.2em;
+	letter-spacing:0px;
+	padding:10px;
+	border-top:1px solid #9b9530;
+	border-right:1px solid #9b9530;
+	border-left:1px solid #9b9530;
+	color:#000000;
+}
+
+div.right ul.nav li.current
+{
+	background-image:url('../skin/blue_grad_dark.png');
+	background-color:#247b94;
+}
+
+div.right h2
+{
+	height:34px;
+	background-image:url('../skin/pink_grad.png');
+	background-position:bottom;
+	background-repeat:repeat-x;
+	background-color:#ec2492;
+	border-bottom:1px solid #78385b;
+	border-top:1px solid #ff95cf;
+	padding-left:15px;
+	padding-top:15px;
+	font-size:2em;
+	letter-spacing:-1px;
+	color:#ffffff;
+}
+
+div.left h1
+{
+	font-size:3.2em;
+	color:#221e1f;
+	letter-spacing:-1px;
+	font-weight:bold;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+div.left p#breadcrumb
+{
+	color:#ababab;
+}
+
+div.left div.copy p
+{
+	font-size:1.2em;
+	line-height:1.6em;
+	padding-bottom:10px;
+}
+
+div.left div.copy
+{
+	margin-bottom:10px;
+}
+
+div.left ul.profile li
+{
+	float:left;
+}
+
+div.left ul.profile li a
+{
+	display:block;
+	border-top:1px solid #78e1ff;
+	border-left:1px solid #78e1ff;
+	border-bottom:1px solid #417280;
+	border-right:1px solid #417280;
+	background-image:url('../skin/blue_grad.png');
+	background-position:bottom;
+	background-repeat:repeat-x;
+	background-color:#48c7eb;
+	color:#ffffff;
+	overflow:hidden;
+	padding:10px;
+	width:290px;
+	text-decoration:none;
+}
+
+div.left ul.profile li a:hover
+{
+	background-image:url('../skin/blue_grad_dark.png');
+	background-color:#247b94;
+}
+
+div.left ul.profile li a img
+{
+	float:left;
+	margin-right:10px;
+	border:1px solid #FFFFFF;
+}
+
+div.left ul.profile li a span
+{
+	display:block;
+}
+
+div.left ul.profile li a span.title
+{
+	font-weight:bold;
+	letter-spacing:-1px;
+	font-size:2.4em;
+}
+
+div.left ul.profile li a span.position
+{
+	font-size:1.2em;
+}
+
+/*
+    ColorBox Core Style
+    The following rules are the styles that are consistant between all ColorBox themes
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative; overflow:visible;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+
+/* 
+    ColorBox example user style
+    The following rules are ordered and tabbed in a way that represents the order/nesting of the generated HTML, 
+    in hope that this will make the relationship easier to understand. Thanks, jack@colorpowered.com
+*/
+#cboxOverlay{background:url(../skin/lightbox/overlay.png) 0 0 repeat;}
+
+#colorbox{}
+	#cboxTopLeft{width:21px; height:21px; background:url(../skin/lightbox/borderTopLeft.png) 0 0 no-repeat;}
+	#cboxTopCenter{height:21px; background:url(../skin/lightbox/borderTopCenter.png) 0 0 repeat-x;}
+	#cboxTopRight{width:21px; height:21px; background:url(../skin/lightbox/borderTopRight.png) 0 0 no-repeat;}
+	#cboxBottomLeft{width:21px; height:21px; background:url(../skin/lightbox/borderBottomLeft.png) 0 0 no-repeat;}
+	#cboxBottomCenter{height:21px; background:url(../skin/lightbox/borderBottomCenter.png) 0 0 repeat-x;}
+	#cboxBottomRight{width:21px; height:21px; background:url(../skin/lightbox/borderBottomRight.png) 0 0 no-repeat;}
+	#cboxMiddleLeft{width:21px; background:url(../skin/lightbox/borderMiddleLeft.png) 0 0 repeat-y;}
+	#cboxMiddleRight{width:21px; background:url(../skin/lightbox/borderMiddleRight.png) 0 0 repeat-y;}
+	#cboxContent{background:#fff;}
+		#cboxLoadedContent{margin-bottom:28px; text-align:left;}
+                #cboxTitle{position:absolute; bottom:3px; left:0; text-align:center; width:100%; color:#949494;}
+                #cboxCurrent{position:absolute; bottom:3px; left:58px; color:#949494;}
+                #cboxSlideshow{position:absolute; bottom:3px; right:30px; color:#0092ef;}
+                #cboxPrevious{position:absolute; bottom:0; left:0px; background:url(../skin/lightbox/controls.png) -25px 0px no-repeat; width:25px; height:25px; text-indent:-9999px;}
+                #cboxPrevious.hover{background-position:-25px -25px;}
+                #cboxNext{position:absolute; bottom:0; left:27px; background:url(../skin/lightbox/controls.png) 0px 0px no-repeat; width:25px; height:25px; text-indent:-9999px;}
+                #cboxNext.hover{background-position:0px -25px;}
+		#cboxLoadingOverlay{background:url(../skin/lightbox/loading_background.png) center center no-repeat;}
+                #cboxLoadingGraphic{background:url(../skin/lightbox/loading.gif) center center no-repeat;}
+		#cboxClose{position:absolute; bottom:0; right:0; background:url(../skin/lightbox/controls.png) -50px 0px no-repeat; width:25px; height:25px; text-indent:-9999px;}
+		#cboxClose.hover{background-position:-50px -25px;}
+		
+		
+#cboxLoadedContent h1
+{
+	font-size:2.5em;
+	background-color:#48c7eb;
+	padding:10px;
+	color:#ffffff;
+	padding-bottom:8px;
+	font-weight:bold;
+	letter-spacing:-1px;
+	margin-bottom:20px;
+}
+
+#cboxLoadedContent div.copy p
+{
+	font-size:1.2em;
+	line-height:1.6em;
+	padding-bottom:10px;
+}

@@ -1,0 +1,12 @@
+<%= render :partial => 'layouts/shared/header' %>
+<div class="wrapper">
+	<div class="left">
+  	<%= render_breadcrumb %>
+  	<%= render_flash %>
+  	<%= yield %>
+	</div>
+	<div class="right">
+		<%= (out=yield :support) ? out : render(:partial => 'layouts/shared/default_support') %>
+	</div>
+</div>
+<%= render :partial => 'layouts/shared/footer' %>
