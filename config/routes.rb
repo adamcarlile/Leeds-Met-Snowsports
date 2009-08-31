@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :file_upload_categories
     admin.resources :snippets
     admin.resources :users
+    admin.resources :events
     admin.resource :session
     admin.resources :members, :member => { :suspend => :put, :unsuspend => :put }
   end

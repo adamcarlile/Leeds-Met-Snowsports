@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   #include ExceptionNotifiable
   
   before_filter :current_user
-  before_filter :set_facebook_session
-  helper_method :facebook_session
   
   helper_method :current_user_session, :current_user
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -36,7 +34,7 @@ class ApplicationController < ActionController::Base
   protected
   
     def twitter_feed
-      @twitter = Twitter.twitter_feed
+      #@twitter = Twitter.twitter_feed
     end
     
     def current_user_session

@@ -586,9 +586,128 @@ div.left ul.profile li a span.position
 	margin-bottom:20px;
 }
 
+#cboxLoadedContent h1 span.subtitle
+{
+	display:block;
+	padding-top:3px;
+	font-size:14px;
+	color:#181818;
+}
+
 #cboxLoadedContent div.copy p
 {
 	font-size:1.2em;
-	line-height:1.6em;
+	line-height:1.4em;
 	padding-bottom:10px;
+	margin-left:310px;
 }
+
+div.copy img
+{
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+	border:1px solid #417280;
+}
+
+#cboxLoadedContent div.copy ul
+{
+	margin-bottom:10px;
+	padding-left:20px;
+	margin-left:310px;
+}
+
+#cboxLoadedContent div.copy ul li
+{
+	padding-top:2px;
+	padding-bottom:3px;
+	list-style:disc;
+	line-height:1.4em;
+	font-size:1.2em;
+}
+
+ul.profilelist
+{
+	
+}
+
+ul.profilelist li
+{
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right:20px;
+	padding:10px;
+	padding-bottom:30px;
+	border:1px solid #417280;
+	overflow:hidden;
+	background-color:#48C7EB;
+	background-image:url(../skin/blue_grad.png);
+	background-position:center bottom;
+	background-repeat:repeat-x;
+	position:relative;
+}
+
+ul.profilelist li h3
+{
+	font-size:2em;
+	font-weight:bold;
+}
+
+ul.profilelist li p
+{
+	padding-left:95px;
+	padding-top:10px;
+	color:#333333;
+	font-size:1.1em;
+	line-height:1.4em;
+}
+
+ul.profilelist li h3 a
+{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+ul.profilelist li img
+{
+	margin-top:10px;
+	float:left;
+	border:5px solid #417280;
+}
+
+ul.profilelist li a:hover img
+{
+	border-color:#ffffff;
+}
+
+ul.profilelist li h4
+{
+	padding-top:2px;
+	font-size:1.4em;
+	font-weight:bold;
+}
+
+ul.profilelist li a.more
+{
+	display:block;
+	position:absolute;
+	background-color:#EC2492;
+	padding:5px;
+	padding-top:7px;
+	padding-left:10px;
+	padding-right:10px;
+	color:#ffffff;
+	bottom:0px;
+	right:0px;
+	text-decoration:none;
+}
+
+ul.profilelist li a.more:hover
+{
+	text-decoration:underline;
+}
+
+
+
+
+

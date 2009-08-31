@@ -1,0 +1,202 @@
+<% content_for :head do %>
+<%= google_maps_javascript %>
+<script src="/javascripts/jquery.slider.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+// geocoder variables and constants
+	var geo = new GClientGeocoder();
+	var reasons = [ ] ;
+		reasons[G_GEO_SUCCESS] = "Success" ;
+		reasons[G_GEO_MISSING_ADDRESS] = "Missing Address: The address was either missing or had no value." ;
+		reasons[G_GEO_UNKNOWN_ADDRESS] = "Unknown Address:  No corresponding geographic location could be found for the specified address." ;
+		reasons[G_GEO_UNAVAILABLE_ADDRESS] = "Unavailable Address:  The geocode for the given address cannot be returned due to legal or contractual reasons." ;
+		reasons[G_GEO_BAD_KEY] = "Bad Key: The API key is either invalid or does not match the domain for which it was given" ;
+		reasons[G_GEO_TOO_MANY_QUERIES] = "Too Many Queries: The daily geocoding quota for this site has been exceeded." ;
+		reasons[G_GEO_SERVER_ERROR] = "Server error: The geocoding request could not be successfully processed." ;
+		reasons[G_GEO_BAD_REQUEST] = "A directions request could not be successfully parsed.";
+		reasons[G_GEO_MISSING_QUERY] = "No query was specified in the input.";
+		reasons[G_GEO_UNKNOWN_DIRECTIONS] = "The GDirections object could not compute directions between the points.";
+	var accuracy = [ ] ;
+		accuracy[0] = 'Unknown' ;
+		accuracy[1] = 'Country' ;
+		accuracy[2] = 'Region' ;
+		accuracy[3] = 'Sub-region' ;
+		accuracy[4] = 'Town' ;
+		accuracy[5] = 'Post code' ;
+		accuracy[6] = 'Street' ;
+		accuracy[7] = 'Intersection' ;
+		accuracy[8] = 'Address' ;
+		accuracy[9] = 'Premise' ;
+		
+function findaddress(){
+	if ($('#event_street').val()) {
+		var address = $('#event_street').val();
+		if ($('#event_town').val()) { address += ", " + $('#event_town').val(); }
+		if ($('#event_county').val()) { address += ", " + $('#event_county').val(); }
+		if ($('#event_post_code').val()) { address += ", " + $('#event_post_code').val(); }
+   		geo.setBaseCountryCode("UK") ;				// United Kingdom
+		geo.getLocations(address, function (result) { 
+			if (result.Status.code == G_GEO_SUCCESS) {
+    				$('#geomessage').html("Found " + result.Placemark.length +" results");
+    				for (var i=0; i<result.Placemark.length; i++){
+     					var p = result.Placemark[i].Point.coordinates;
+					marker.setPoint(new GLatLng(p[1],p[0]));
+					marker.redraw();
+					GEvent.trigger(marker,'click'); 
+     					$('#geomessage').html("Accuracy: " + accuracy[result.Placemark[i].AddressDetails.Accuracy] + ", Code: " + reasons[result.Status.code]);
+   				}
+    				var p = result.Placemark[0].Point.coordinates;
+    				map.setCenter(new GLatLng(p[1],p[0]), 8 + result.Placemark[0].AddressDetails.Accuracy);
+   			} else {
+    				var reason="Code "+result.Status.code;
+    				if (reasons[result.Status.code]) {
+    					reason = reasons[result.Status.code];
+    				} 
+    				alert('Could not find "' + address + '" ' + reason);
+   			}
+  		} ) ;
+ 		} else {
+		alert('Must have a street address!');
+	}
+}
+
+
+$(document).ready(function() {
+	$(function(){
+				$('div.slider').each(function(){
+					$(this).find('select').selectToUISlider({
+						labels: 8
+					});
+				});
+			});
+			
+	$('div.slider select, div.slider label').hide();
+	
+	$('input.closed').click(function(){
+		if($(this).is(':checked')){
+			$(this).parent().parent().find('.ui-slider').animate({opacity: 0.2}, 200);
+		} else {
+			$(this).parent().parent().find('.ui-slider').animate({opacity: 1}, 200);
+		}
+	});
+	
+	$('input.closed:checked').parent().parent().find('.ui-slider').css('opacity', 0.2);
+
+	
+	// fix precision of reported Lat/Lng 
+	function fix6ToString(n) {
+		return n.toFixed(6).toString();
+	}
+	
+	//<![CDATA[ 
+	// main map drawing function
+		$(function() {
+			if (GBrowserIsCompatible()) {
+	// Start processing the map
+				map = new GMap2(document.getElementById("mapcanvas"));
+				GEvent.addListener(map, "moveend", function() {
+					var center = map.getCenter();
+				});
+	// Lane Realty pos
+				<% if @event.lng and @event.lat %>
+				var LRPoint = new GLatLng(<%= @event.lat %>,<%= @event.lng %>);
+				var CentrePoint = new GLatLng(<%= @event.lat %>,<%= @event.lng %>);
+				<% else %>
+				var LRPoint = new GLatLng(53.801867,-1.549072);
+				var CentrePoint = new GLatLng(53.801867,-1.549072);
+				<% end %>
+	// Add controls
+				map.addMapType(G_PHYSICAL_MAP);
+				map.addControl(new GSmallMapControl());
+				map.setCenter(CentrePoint,13);
+	// Now the marker and click label
+				marker = new GMarker(LRPoint, {draggable: true});
+				GEvent.addListener(marker, "click", function() {
+					var point = marker.getPoint();
+					$('#event_lng').val(fix6ToString(point.lng()));
+					$('#event_lat').val(fix6ToString(point.lat()));
+				});
+				GEvent.addListener(marker, "dragstart", function() {
+					map.closeInfoWindow();
+				});
+				GEvent.addListener(marker, "dragend", function() {
+					var point = marker.getPoint();
+					$('#event_lng').val(fix6ToString(point.lng()));
+					$('#event_lat').val(fix6ToString(point.lat()));
+				});
+				map.addOverlay(marker);
+	// Display marker info window
+				GEvent.trigger(marker,'click'); 
+	// Add Lat Long to centre report at base of map
+				GEvent.trigger(map,'moveend');
+			}
+		});	
+});
+</script>
+<% end %>
+<fieldset>
+	<div class="title">
+		<%= f.field :title %>
+	</div>
+	<table width="100%">
+		<tr>
+			<td>
+				<%= f.label :start, 'Start Date and Time' %><br />
+				<%= f.datetime_select :start %>
+			</td>
+			<td>
+				<%= f.label :finish, 'Finish Date and Time'%><br />
+				<%= f.datetime_select :finish %>
+			</td>
+		</tr>
+	</table>
+	<fieldset class="location">
+		<legend>Details</legend>
+		<%= render :partial => 'admin/pages/page_content_fields', :locals => {:f => f} %>
+	</fieldset>
+	<fieldset class="location">
+		<legend>Location</legend>
+		<div class="left">
+		<div id="message"></div>
+		<div id="geomessage"></div>
+			<div class="address">
+				<%= f.field :street %>
+				<%= f.field :town %>
+				<%= f.field :county %>
+				<%= f.field :post_code %>
+				<%= f.hidden_field :lng %>
+				<%= f.hidden_field :lat %>
+				<p class="buttons">
+				<a class="positive" onclick="findaddress($('#event_street').val())">Search for address</a>
+				</p>
+			</div>
+		</div>
+		<div class="right">
+			<div id="mapcanvas" style="height:400px;width:100%">
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Image</legend>
+		<%= f.label :image, 'Promo Image' %><br />
+		<%= f.file_field :image %><br />
+		<%= image_tag(@event.image.url(:medium)) if @event.image %>
+	</fieldset>
+
+</fieldset>
+<%= render 'admin/generic/resource_buttons' %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

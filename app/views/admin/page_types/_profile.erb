@@ -5,6 +5,8 @@
     <%= f.text_field :title %>
   </div>
 
+	<%= f.field :subtitle %>
+
   <%= render :partial => 'admin/pages/common_fields', :locals => {:f => f} %>  
 
   <%= render :partial => 'admin/pages/meta_fields', :locals => {:f => f} %>
@@ -13,9 +15,9 @@
 
 	<fieldset>
 		<legend>Image</legend>
-		<%= f.label :image, 'Image' %><br />
+		<%= f.label :image, 'Profile Image' %><br />
 		<%= f.file_field :image %><br />
-		<%= image_tag(@page.image.url(:thumnail)) if @page.image %>
+		<%= image_tag(@page.image.url(:medium)) if @page.image %>
 	</fieldset>
 
 </fieldset>

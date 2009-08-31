@@ -483,3 +483,40 @@ button.positive, .buttons a.positive{
     color:#fff;
 }
 
+fieldset.location div.left
+{
+	float:left;
+	width:30%;
+}
+
+fieldset.location div.right
+{
+	float:right;
+	width:68%;
+}
+
+div.address input.text_field
+{
+	width:97%;
+}
+
+div.address
+{
+	overflow:hidden;
+	margin-bottom:20px;
+}
+
+div.left div.formElm
+{
+	clear:both;
+	padding-top:5px;
+	padding-bottom:5px;
+	overflow:hidden;
+}
+
+div.left div.formElm label
+{
+	width:130px;
+	float:left;
+}
+
