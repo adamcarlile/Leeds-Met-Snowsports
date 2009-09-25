@@ -107,6 +107,13 @@ module ApplicationHelper
   def jmaps
     %(<script src="/javascripts/jquery.jmap.js" type="text/javascript"></script>)
   end
+  
+  def datebox(date)
+    output = %(<div class="datebox">\n)
+    output += content_tag('span', date.strftime("%d"), :class => "day")
+    output += content_tag('span', date.strftime("%B"), :class => "month")
+    output += %(</div)
+  end
 
   #
   # Write out the javascript and html to embed flash with SWFObject

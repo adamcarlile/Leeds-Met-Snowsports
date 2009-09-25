@@ -1,0 +1,9 @@
+<%= render 'public/shared/page_body' %>
+<% Event.all.each do |event| %>
+<div class="divider event">
+	<%= datebox(event.start) %>
+		<h2><%= link_to event.title, '#' %></h2>
+		<h3><%= event.address %></h3>
+		<h4><%= event.start.strftime("%b %d, %Y - %I:%M %p") %><%= " until " + event.finish.strftime("%b %d, %Y - %I:%M %p") %></h4>
+</div>
+<% end %>

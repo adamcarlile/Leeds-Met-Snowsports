@@ -63,6 +63,28 @@ $(document).ready(function() {
   	<%= render_breadcrumb %>
   	<%= render_flash %>
 	<%= render :partial => 'public/shared/player' %>
+	<div id="newsevents">
+		<div class="news">
+			<h2><%= s("LATEST NEWS") %></h2>
+			<ul>
+				<% @news.each do |item| %>
+				<li>
+					<%= link_to image_tag(item.image(:thumbnail)), url_for_page(item)%>
+					<h4><%= link_to_page(item) %></h4>
+					<h5><%= format_date(item.publish_date)%></h5>
+					<p><%= truncate(item.intro, :length => 275) %></p>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="events">
+			<h2><%= s("NEXT EVENTS") %>
+			<ul>
+				<li>
+				</li>
+			</ul>	
+		</div>
+	</div>
 	<ul id="promos">
   	<% @promos_bottom.each do |promo| %>
 		<li class="<%= cycle('blue','yellow','pink') %>">

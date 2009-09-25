@@ -11,4 +11,11 @@
 
   <%= render :partial => 'admin/pages/page_content_fields', :locals => {:f => f} %>
 
+	<fieldset>
+		<legend>Image</legend>
+		<%= f.label :image, 'News Image' %><br />
+		<%= f.file_field :image %><br />
+		<%= image_tag(@page.image.url(:medium)) if @page.image %>
+	</fieldset>
+
 </fieldset>

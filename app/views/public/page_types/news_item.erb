@@ -1,16 +1,29 @@
-<% content_for :sidebar do %>
+<% content_for :support do %>
 <h2><%= @root_page %></h2>
-<%= render_list_nav @root_page %>
-<%= render :partial => 'public/page_types/shared/side_feature' %>
+<% NewsItem.archives.group_by(&:article_year).sort.reverse.each do |publish_date, archives| %>
+<div id="year_<%= publish_date %>" class="archive">
+	<ul class="nav">
+		<li class="withsubnav"><a href="#"><%= publish_date %></a>
+		<ul>
+		<% for news_item in archives %>
+			<li><a href="<%= url_for_page news_item %>" title="<%= news_item.title %>"><%= news_item.title %></a></li>
+		<% end %>
+		</ul>
+		</li>
+	</ul>
+</div>
+<% end %>
 <% end %>
 
 <h1><%= h @page.title %></h1>
+<%= datebox(@page.publish_date) %>
+<div class="copy" style="margin-right:20px;">
 	<% if @page.intro %>
 		<div id="intro"><p><%= h @page.intro %></p></div>
 	<% end %>
-	<% if @news_item.image1 %>
-		<%= uploaded_image(@news_item.image1, :file, 'big') %>
+	<% if @news_item.image %>
+		<%= link_to image_tag(@news_item.image(:medium)), @news_item.image(:large) %>
 	<% end %>
  	<%= @page.body %>
- 	<%= render :partial => 'public/shared/file_uploads' %>
  	<p id="back"><%= link_to " &laquo; back to news index", url_for_page(@page.parent) %></p>
+</div>

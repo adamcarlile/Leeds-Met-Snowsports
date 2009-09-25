@@ -105,17 +105,12 @@ ActiveRecord::Schema.define(:version => 20090830153306) do
     t.string   "slug"
     t.string   "slug_path"
     t.string   "title_path"
-    t.boolean  "locked",             :default => false, :null => false
-    t.boolean  "published",          :default => false, :null => false
+    t.boolean  "locked",           :default => false, :null => false
+    t.boolean  "published",        :default => false, :null => false
     t.datetime "publish_date"
     t.string   "url"
     t.text     "intro"
     t.text     "body"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "subtitle"
   end
 
   create_table "promos", :force => true do |t|
@@ -155,13 +150,6 @@ ActiveRecord::Schema.define(:version => 20090830153306) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.string   "visible_username"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "facebook_uid",              :limit => 8
-    t.string   "name"
   end
 
 end

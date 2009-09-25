@@ -10,11 +10,12 @@ module Public::PageTypes
   def homepage
     @promos_bottom = Promo.bottom
     @promos_top = Promo.top
+    @news = NewsItem.homepage
     render(:template => 'public/page_types/homepage', :layout => 'layouts/homepage') and @rendered = true
   end
   
   def news_index
-    @news = @page.children.published.paginate(:page => params[:page], :order => 'publish_date DESC')
+    @news = Page.paginate(:page => params[:page], :conditions => 'type = "NewsItem"', :order => 'publish_date DESC', :per_page => 10)
     respond_to do |format|
       format.html { render_page_type }
       format.rss { render(:template => 'public/page_types/news_index.rss.builder', :layout => false) } and @rendered = true

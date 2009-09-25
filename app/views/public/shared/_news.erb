@@ -1,0 +1,13 @@
+<div class="sidenews">
+	<h2>Latest News</h2>
+	<ul>
+<% NewsItem.latest.each do |item| %>
+	<li>
+		<%= link_to image_tag(item.image(:thumbnail), :height => 55, :width => 55), url_for_page(item)%>
+		<h4><%= link_to_page(item) %></h4>
+		<h5><%= format_date(item.publish_date)%></h5>
+		<p><%= truncate(item.intro, :length => 75) %></p>
+	</li>
+<% end %>
+</ul>
+</div>

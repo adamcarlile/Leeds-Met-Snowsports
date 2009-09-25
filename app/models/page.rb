@@ -64,7 +64,7 @@ class Page < ActiveRecord::Base
   
   deleteable? true
   
-  allowed_child_types [:page,:folder,:news_index,:download_list,:faq_list,:hyperlink,:redirect]
+  allowed_child_types [:page,:folder,:news_index,:hyperlink,:redirect,:events_index]
 
   archive? false
   
