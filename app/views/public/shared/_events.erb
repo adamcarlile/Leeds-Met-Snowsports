@@ -1,0 +1,12 @@
+<div class="sideevents">
+	<h2>Next Events</h2>
+	<ul>
+		<% Event.homepage.each do |event| %>
+		<li>
+			<%= datebox(event.start) %>
+			<h4><%= event.title %></h4>
+			<p><%= event.address %></p>
+		</li>
+		<% end %>
+	</ul>	
+</div>

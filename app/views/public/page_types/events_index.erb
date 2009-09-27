@@ -1,9 +1,33 @@
 <%= render 'public/shared/page_body' %>
-<% Event.all.each do |event| %>
-<div class="divider event">
+<% content_for :head do %>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.accordian').accordion({
+		active: false,
+		collapsible: true,
+		autoHeight: false,
+		header: 'div.event'
+	});
+})
+</script>
+<% end %>
+<% content_for :support do %>
+<%= render :partial => 'public/shared/news' %>
+<% end %>
+<div class="accordian">
+<% Event.limited.each do |event| %>
+	<div class="divider event">
 	<%= datebox(event.start) %>
 		<h2><%= link_to event.title, '#' %></h2>
 		<h3><%= event.address %></h3>
 		<h4><%= event.start.strftime("%b %d, %Y - %I:%M %p") %><%= " until " + event.finish.strftime("%b %d, %Y - %I:%M %p") %></h4>
-</div>
+	</div>
+	<div class="content">
+		<img src="<%= "http://maps.google.com/maps/api/staticmap?center=#{event.lat},#{event.lng}&amp;zoom=14&amp;size=300x200&amp;key=#{google_maps_key}&amp;sensor=false&amp;markers=color:red|#{event.lat},#{event.lng}" %>" alt="Google maps location">
+		<h4><span>Start Time:</span> <%= event.start.strftime("%I:%M %p")%></h4>
+		<h4><span>Finish Time:</span> <%= event.finish.strftime("%I:%M %p")%></h4>
+		<p><%= event.intro %></p>
+		<%= event.body %>
+	</div>
 <% end %>
+</div>

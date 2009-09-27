@@ -42,7 +42,7 @@ Rails::Initializer.run do |config|
     :session_key => "_cms_session", 
     :secret => "h3g4iuHiug323uadsf8SDGHqwhueiQptyppa" }
 
-    config.cache_store = :mem_cache_store
+    config.cache_store = :timed_file_store, File.join(RAILS_ROOT, 'tmp', 'cache')
   
 end
 

@@ -16,5 +16,12 @@ class Event < ActiveRecord::Base
     [street, town, county, post_code].join(' ')
   end    
   
+  def self.homepage
+    find(:all, :limit => 3, :order => "start ASC", :conditions => "finish >= '#{Time.now.to_formatted_s(:db)}'")
+  end
+  
+  def self.limited
+    find(:all, :order => "start ASC", :conditions => "finish >= '#{Time.now.to_formatted_s(:db)}'")
+  end
     
 end

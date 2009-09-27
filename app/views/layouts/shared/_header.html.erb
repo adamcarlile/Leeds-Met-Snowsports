@@ -22,12 +22,15 @@
 <script src="/javascripts/jquery.tools.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.jmap.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.colorbox-min.js" type="text/javascript"></script>
+<%= '<script src="/javascripts/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>' unless @page.type == 'Homepage' %>
 <%= yield :head %>
 </head>
 <body> 
 	<div class="wrapper">
 		<div id="header">
 			<h1>Leeds Met Snowsports</h1>
+			<% cache("twitter", :time_to_live => 1.hour) do %>
+			<% @twitter = Twitter.twitter_feed %>
 			<% if @twitter %>
 			<div id="twitter">
 				<div class="inner">
@@ -36,6 +39,7 @@
 				<p class="twitter">Follow <a href="http://twitter.com/lmsnowsports">@lmsnowsports</a> on <a href="http://twitter.com">twitter</a></p>
 				<img src="/skin/callouts/twitter_bird.jpg" alt="twitter bird" />
 			</div>
+			<% end %>
 			<% end %>
 			<%= render_global_nav %>
 		</div>

@@ -82,6 +82,13 @@ module ApplicationHelper
     @odd_even_state = @odd_even_state ==  'even' ? 'odd' : 'even'
   end
 
+  def google_maps_key
+    if GOOGLE_MAPS_KEY.is_a?(Hash)
+      key = GOOGLE_MAPS_KEY[request.host]
+    else
+      key = GOOGLE_MAPS_KEY
+    end
+  end
 
   def google_maps_javascript
     if GOOGLE_MAPS_KEY.is_a?(Hash)

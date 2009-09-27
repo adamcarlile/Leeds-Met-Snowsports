@@ -1,3 +1,3 @@
-SITE_NAME = 'Your Sitename'
-ADMIN_EMAIL = 'davidnorth@gmail.com'
-EMAIL_FROM = 'Your Sitename <someone@somedomain.com>'
+SITE_NAME = 'Leeds Met Snowsports 09/10'
+ADMIN_EMAIL = 'adam@benchmedia.co.uk'
+EMAIL_FROM = 'Leeds Met Snowsports <web@leedsmetsnowsports.com>'

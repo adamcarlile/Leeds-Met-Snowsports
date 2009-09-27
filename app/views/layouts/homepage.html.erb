@@ -78,10 +78,15 @@ $(document).ready(function() {
 			</ul>
 		</div>
 		<div class="events">
-			<h2><%= s("NEXT EVENTS") %>
+			<h2><%= s("NEXT EVENTS") %></h2>
 			<ul>
+				<% @events.each do |event| %>
 				<li>
+					<%= datebox(event.start) %>
+					<h4><%= event.title %></h4>
+					<p><%= event.address %></p>
 				</li>
+				<% end %>
 			</ul>	
 		</div>
 	</div>
@@ -94,5 +99,8 @@ $(document).ready(function() {
 		</li>
 	<% end %>
 	</ul>
+	<div id="footer">
+	<p>Created by <a href="http://www.adamcarlile.com">Adam Carlile</a></p>
+	</div>
 </div>
 <%= render :partial => 'layouts/shared/footer' %>

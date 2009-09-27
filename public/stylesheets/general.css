@@ -855,12 +855,12 @@ div.pagination a:hover
 	color:#ffffff;
 }
 
-div.sidenews
+div.sidenews, div.sideevents
 {
 	margin-top:20px;
 }
 
-div.sidenews ul li
+div.sidenews ul li, div.sideevents ul li
 {
 	overflow:hidden;
 	padding-bottom:10px;
@@ -885,7 +885,7 @@ div.sidenews ul li:last-child
 	border:none;
 }
 
-div.sidenews ul li h4 a
+div.sidenews ul li h4 a, div.sideevents ul li h4
 {
 	font-size:1.6em;
 	color:#221e1f;
@@ -907,7 +907,7 @@ div.sidenews ul li h5
 	color:#666666;
 }
 
-div.sidenews ul li p
+div.sidenews ul li p, div.sideevents ul li p
 {
 	font-size:1.1em;
 	line-height:1.3em;
@@ -1018,7 +1018,89 @@ div.divider.event
 	padding-bottom:10px;
 }
 
+div.events ul
+{
+	margin-left:10px;
+}
 
+div.events ul li
+{
+	overflow:hidden;
+	margin-bottom:10px;
+}
 
+div.events ul li h4
+{
+	font-size:1.6em;
+	letter-spacing:-1px;
+	font-weight:bold;
+	margin-bottom:5px;
+}
 
+div.accordian div.content img
+{
+	border:5px solid #41B3D3;
+	float:left;
+	margin-right:10px;
+}
 
+div.accordian div.content 
+{
+	overflow:hidden;
+	width:607px;
+}
+
+div.accordian div.content h4
+{
+	font-size:1.9em;
+	font-weight:bold;
+	letter-spacing:-1px;
+	margin-bottom:5px;
+}
+
+div.accordian div.content h4 span
+{
+	font-size:0.8em;
+	color:#999999;
+}
+
+div.accordian div.content p
+{
+	margin-bottom:5px;
+	font-size:1.1em;
+	line-height:1.4em;
+}
+
+div.event.ui-state-active
+{
+	background-color:#EC2492;
+	background-image:url(../skin/pink_grad.png);
+	background-position:center bottom;
+	background-repeat:repeat-x;
+	color:#ffffff;
+}
+
+div.datebox span
+{
+	color:#221E1F !important;
+}
+
+div.event
+{
+	cursor:pointer;
+}
+
+div#footer
+{
+	margin-top:10px;
+	padding-top:10px;
+	border-top:1px solid #cccccc;
+	margin-bottom:20px;
+	overflow:hidden;
+}
+
+div#footer p
+{
+	float:right;
+	font-size:1.1em;
+}

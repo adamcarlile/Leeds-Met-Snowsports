@@ -11,6 +11,7 @@ module Public::PageTypes
     @promos_bottom = Promo.bottom
     @promos_top = Promo.top
     @news = NewsItem.homepage
+    @events = Event.homepage
     render(:template => 'public/page_types/homepage', :layout => 'layouts/homepage') and @rendered = true
   end
   
