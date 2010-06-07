@@ -17,7 +17,7 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
-  config.gem "authlogic", :version => ">= 2.0.9"
+  config.gem "authlogic", :version => "<= 2.1.3"
   config.gem "mislav-will_paginate", :version => ">= 2.3.0", :lib => "will_paginate", :source => "http://gems.github.com"
   config.gem "giraffesoft-resource_controller", :lib => "resource_controller",  :version => ">= 0.6.1", :source => "git://github.com/giraffesoft/resource_controller.git"
   config.gem 'RedCloth', :lib => 'redcloth'
