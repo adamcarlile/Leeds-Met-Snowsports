@@ -435,7 +435,7 @@ div.right ul.nav li.withsubnav ul li a
 	border-top:1px solid #cccccc;
 }
 
-div.right ul.nav li.withsubnav ul li a:hover div.right ul.nav li.withsubnav ul li.current a 
+div.right ul.nav li.withsubnav ul li a:hover, div.right ul.nav li.withsubnav ul li.current a 
 {
 	background-color:#bfeefb;
 }
