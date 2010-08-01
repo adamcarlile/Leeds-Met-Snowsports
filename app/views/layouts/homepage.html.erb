@@ -96,7 +96,7 @@ $(document).ready(function() {
 			<% if promo.override_url.empty? %>
 				<% link = view_page_path(promo.page.slug_path) if promo.page %>
 			<% else %>
-				<% link = override_url %>
+				<% link = promo.override_url %>
 			<% end %>
 			<h4><%= link_to s(promo.title), link  %></h4>
 			<p><%= promo.intro %></p>
