@@ -29,18 +29,7 @@
 	<div class="wrapper">
 		<div id="header">
 			<h1>Leeds Met Snowsports</h1>
-			<% cache("twitter", :time_to_live => 1.hour) do %>
-			<% @twitter = Twitter.twitter_feed %>
-			<% if @twitter %>
-			<div id="twitter">
-				<div class="inner">
-					<p><%= @twitter.first['text'] %></p>
-				</div>
-				<p class="twitter">Follow <a href="http://twitter.com/lmsnowsports">@lmsnowsports</a> on <a href="http://twitter.com">twitter</a></p>
-				<img src="/skin/callouts/twitter_bird.jpg" alt="twitter bird" />
-			</div>
-			<% end %>
-			<% end %>
+			
 			<%= render_global_nav %>
 		</div>
 	</div>

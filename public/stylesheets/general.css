@@ -64,7 +64,6 @@ ul#main_navigation li
 ul#main_navigation li a
 {
 	display:block;
-	width:156px;
 	text-align:center;
 	background-image: url('../skin/header/navdivider.gif');
 	background-position: right;
@@ -74,13 +73,16 @@ ul#main_navigation li a
 	color:#ffffff;
 	text-decoration:none;
 	height:54px;
+	padding-left:39px;
+	padding-right:39px;
 	line-height:58px;
 }
 
 ul#main_navigation li.last a
 {
 	background-image:none;
-	width:160px;
+	padding-left:42px;
+	padding-right:42px;
 }
 
 ul#main_navigation li a:hover
@@ -355,13 +357,15 @@ div#twitter p.twitter
 div.left
 {
 	float:left;
-	width:629px;
+	width:619px;
+	margin-bottom:20px;
 }
 
 div.right
 {
 	float:right;
 	width:309px;
+	margin-bottom:20px;
 }
 
 div.right ul.nav
@@ -408,11 +412,11 @@ div.right ul.nav li.withsubnav ul
 {
 	margin:0px;
 	padding:0px;
-	background-image:url('../skin/yellow_nav_bg.jpg');
 	background-position:top;
 	background-repeat:repeat-x;
-	background-color:#d3cb3c;
-	border-top:1px solid #000000;
+	border:0px;
+	background-color:#ffffff;
+	background-image:none;
 }
 
 div.right ul.nav li.withsubnav ul li
@@ -427,10 +431,13 @@ div.right ul.nav li.withsubnav ul li a
 	font-size:1.2em;
 	letter-spacing:0px;
 	padding:10px;
-	border-top:1px solid #9b9530;
-	border-right:1px solid #9b9530;
-	border-left:1px solid #9b9530;
 	color:#000000;
+	border-top:1px solid #cccccc;
+}
+
+div.right ul.nav li.withsubnav ul li a:hover
+{
+	background-color:#bfeefb;
 }
 
 div.right ul.nav li.current
@@ -747,17 +754,12 @@ div.datebox span.month
 div.divider
 {
 	margin-top:10px;
+	padding-top:10px;
+	padding-bottom:10px;
 	margin-bottom:10px;
-	margin-right:20px;
-	padding:10px;
-	padding-bottom:30px;
-	border:1px solid #417280;
 	overflow:hidden;
-	background-color:#48C7EB;
-	background-image:url(../skin/blue_grad.png);
-	background-position:center bottom;
-	background-repeat:repeat-x;
 	position:relative;
+	border-top:1px solid #cccccc;
 }
 
 div.divider h2
@@ -777,7 +779,7 @@ div.divider p
 
 div.divider h2 a
 {
-	color:#FFFFFF;
+	color:#000000;
 	text-decoration:none;
 }
 
@@ -785,28 +787,27 @@ div.divider img
 {
 	margin-top:10px;
 	float:left;
-	border:5px solid #417280;
+	border:5px solid #41B3D3;
 }
 
 div.divider a:hover img
 {
-	border-color:#ffffff;
+	border-color:#EC2492;
 }
 
 div.divider a.more
 {
 	display:block;
-	position:absolute;
 	background-color:#EC2492;
-	padding:5px;
-	padding-top:7px;
-	padding-left:10px;
-	padding-right:10px;
+	padding:1px;
+	margin-top:5px;
+	padding-top:2px;
+	padding-left:4px;
+	padding-right:4px;
 	color:#ffffff;
-	bottom:0px;
-	right:0px;
 	text-decoration:none;
 	font-weight:bold;
+	width:57px;
 }
 
 div.divider a.more:hover
@@ -1097,10 +1098,83 @@ div#footer
 	border-top:1px solid #cccccc;
 	margin-bottom:20px;
 	overflow:hidden;
+	clear:both;
 }
 
 div#footer p
 {
 	float:right;
 	font-size:1.1em;
+}
+
+ul.gallery
+{
+	
+}
+
+ul.gallery li
+{
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+ul.gallery li
+{
+	display:block;
+	border:5px solid #41B3D3;
+}
+
+ul.gallery li a
+{
+	display:block;
+	text-align:center;
+	font-size:1.4em;
+	background-color:#41B3D3;
+	color:#ffffff;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+ul.gallery li p a
+{
+	padding-top:5px;
+}
+
+ul.gallery li:hover
+{
+	border-color:#EC2492;
+}
+
+ul.gallery li:hover a
+{
+	background-color:#EC2492;
+}
+
+ul.gallery li.four
+{
+	margin-right:0px;
+}
+
+h1 span.subtitle
+{
+	display:block;
+	font-size:0.5em;
+}
+
+div.copy ul
+{
+	margin-top:10px;
+	margin-bottom:20px;
+	margin-left:10px;
+}
+
+div.copy ul li
+{
+	margin-left:10px;
+	list-style:disc;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:1.2em;
+	line-height:1.6em;
 }

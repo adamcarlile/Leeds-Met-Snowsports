@@ -1,5 +1,5 @@
 class GalleryList < Page
 
-  allowed_child_types [:gallery]
+  can_have_children? false
 
 end

@@ -1,0 +1,7 @@
+<%= render :partial => '/admin/shared/upload_js', :locals => { :f => f,
+  :url => admin_gallery_gallery_images_path(ActionController::Base.session_options[:session_key] => cookies[ ActionController::Base.session_options[:session_key]]),
+  :dialog_file_description => 'Images',
+  :allowed_extensions => [:jpg, :jpeg, :gif, :png],
+  :allow_multiple_files => true,
+  :max_size => 20.megabyte
+} %>

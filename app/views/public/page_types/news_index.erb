@@ -25,8 +25,8 @@
 	<% if news_item.image %>
 		<%= link_to image_tag(news_item.image(:thumbnail)), url_for_page(news_item) %>
 	<% end %>
-	<p><%= news_item.intro %></p>
-	<%= link_to 'Read the rest of this entry', url_for_page(news_item), :class => 'more' %>
+	<p><%= news_item.intro %>&nbsp;<%= link_to 'Read more', url_for_page(news_item), :class => 'more' %>
+	</p>
 	</div>
 	<% end %>
 <%= will_paginate @news %>

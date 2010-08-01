@@ -1,21 +1,23 @@
-<% content_for :sidebar do %>
-	<h2><%= @root_page %></h2>
-	<%= render_list_nav @root_page %>
-	<%= render :partial => 'public/page_types/shared/side_feature' %>
+<% content_for :support do %>
+<h2><%= @page.title %></h2>
+<ul class="nav">
+	<% @galleries.each do |gallery| %>
+	<li><a href="/gallery?id=<%= gallery.id %>"><%= gallery.name %></a></li>
+	<% end %>
+</ul>
+<%= render :partial => 'public/shared/news' %>
+<%= render :partial => 'public/shared/events' %>
 <% end %>
 
-<%= render :partial => 'public/page_types/shared/page_body' %>
+<%= render 'public/shared/page_body' %>
 
-<% for gallery in @galleries %>
-<div class="divider">
-  <h2><%= link_to_page gallery %></h2>
-  <% if gallery.images.first %>
-	  <a href="<%= url_for_page gallery %>"><%= uploaded_image gallery.images.first, :file, 'small' %></a>
-  <% end %>
-  <% if gallery.intro? %>
-  <p><%= gallery.intro %></p>
-  <% end %>
-  <p class="readmore"><%= link_to 'view gallery', url_for_page(gallery) %></p>
-</div>
+<ul class="gallery">
+<% @galleries.each do |gallery| %>
+	<li class="<%= cycle('one','two','three')%>">
+		<a href="/gallery?id=<%= gallery.id %>">
+			<%= image_tag gallery.gallery_images.first.file.url(:thumb) %>
+		</a>
+		<p><a href="/gallery?id=<%= gallery.id %>"><%= gallery.name %></a></p>
+	</li>
 <% end %>
-<%= will_paginate @galleries %>
+</ul>

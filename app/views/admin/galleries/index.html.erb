@@ -1,0 +1,59 @@
+<% content_for :head do %>
+<script type="text/javascript">
+//public/javascripts/application.js
+
+// This sets up the proper header for rails to understand the request type,
+// and therefore properly respond to js requests (via respond_to block, for example)
+$.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+	$(document).ready(function() {
+
+  // UJS authenticity token fix: add the authenticy_token parameter
+  // expected by any Rails POST request.
+  	$(document).ajaxSend(function(event, request, settings) {
+    // do nothing if this is a GET request. Rails doesn't need
+    // the authenticity token, and IE converts the request method
+    // to POST, just because - with love from redmond.
+    if (settings.type == 'GET') return;
+    settings.data = settings.data || "";
+    settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent('<%= form_authenticity_token %>');
+  });
+
+	});
+  $(document).ready(function() {
+		$('ul.gallerylist').sortable({
+		  dropOnEmpty:false, 
+		  cursor: 'move',
+		  opacity: 0.8,
+		  scroll: true,
+		  update: function(){
+		    $.ajax({
+		        type: 'post', 
+		        data: $('ul.gallerylist').sortable('serialize'), 
+		        dataType: 'script', 
+		        url: '<%= reorder_admin_galleries_path %>'})
+		    }
+		  })
+	})
+</script>
+<% end %>
+
+<% @page_title = human_model_name.humanize.pluralize %>
+
+<%= partial 'admin/shared/collection_option_links' %>
+
+<ul class="gallerylist">
+<% @collection.each do |gallery| %>
+	<li class="<%= cycle('one','two','three','four')%>" id="gallery_<%= gallery.id -%>">
+		<%= image_tag gallery.gallery_images.first.file.url(:thumb) unless gallery.gallery_images.empty? %>
+		<h4><%= gallery.name %></h4>
+		<div class="controls">
+			<%= link_to_with_icon 'edit', 'Edit', edit_object_url(gallery) %>
+      <%= link_to "#{image_tag('/images/admin/delete.gif')} Delete", object_url(gallery), :method => :delete, :confirm => 'Are you sure?' %>
+			<%= link_to "Edit Images", new_admin_gallery_gallery_image_path(gallery) %>
+		</div>
+	</li>
+  <% end %>
+</ul>

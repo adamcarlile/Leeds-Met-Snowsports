@@ -1,0 +1,36 @@
+<% content_for :head do %>
+  <%= javascript_include_tag  'swfobject', 'jquery.uploadify' %>
+
+  <% javascript_tag do %>
+    $(document).ready(function() {
+      $("#file_uploader").uploadify({
+       'uploader': '/flash/admin/uploadify.swf',
+       'script': '<%= url %>',
+       'scriptData': { 
+					'format': 'json', 
+					'_method': 'post',
+					'_http_accept': 'application/javascript',
+	        'authenticity_token': encodeURIComponent('<%= form_authenticity_token %>'),
+	 				'gallery_id': '<%= params[:gallery_id] %>'
+				},
+       'fileDataName': $('#file_uploader input:file')[0].name, // Extract correct name of upload field from form field
+       //'scriptAccess': 'always', // Incomment this, if for some reason it doesn't work
+       'multi': <%= allow_multiple_files %>,
+       'auto': true,
+       'fileDesc': '<%= dialog_file_description %> (<%= allowed_extensions.collect { |ext| "*.#{ext}" }.join(';') %>)',
+       'fileExt': '<%= allowed_extensions.collect { |ext| "*.#{ext}" }.join(';') %>',
+       'sizeLimit': <%= max_size %>,
+       'simUploadLimit': 1,
+       //'buttonImg': '/images/button-fixed.png',
+       'width': 120,
+       'height': 24,
+       'cancelImg': '/images/cancel.png',
+       'onComplete': function(event, data) { $.get(location.href) }, // We assume that we can refresh the list by doing a js get on the current page
+     'displayData': 'speed'
+      });
+    });
+  <% end %>
+<% end %>
+<div id="file_uploader">
+  <p><%= f.file_field :file %></p>
+</div>

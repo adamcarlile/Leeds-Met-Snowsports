@@ -24,6 +24,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :events
     admin.resource :session
     admin.resources :members, :member => { :suspend => :put, :unsuspend => :put }
+    admin.resources :galleries, :collection => { :reorder => :post } do |image|
+      image.resources :gallery_images, :collection => {:reorder => :post}
+    end
   end
   map.admin_dashboard 'admin', :controller => 'admin/pages', :action => 'index'
   map.flex_crop '/admin/images/:id/crop.xml', :controller => 'admin/images', :action => 'flex_crop'

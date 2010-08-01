@@ -1,24 +1,11 @@
-<% content_for :head do %>
-<script type="text/javascript">
-$(document).ready(function() {
-	$("ul.profilelist li a").colorbox({
-		maxWidth: "700px",
-		initialHeight: "80%"
-		});
-});
-</script>
-<% end %>
-
 <%= render 'public/shared/page_body' %>
 
-<ul class="profilelist">
 <% @page.children.each do |profile| %>
-	<li>
-		<h3><%= link_to profile.title, url_for_page(profile) %></h3>
-		<h4><%= profile.subtitle %></h4>
-		<%= link_to((image_tag profile.image.url(:thumbnail)), url_for_page(profile)) %>
-		<p><%= profile.intro %></p>
-		<%= link_to "Read more about #{profile.title}&hellip;", url_for_page(profile), :class => 'more' %>
-	</li>
+<div class="divider">		
+	<h2><%= link_to profile.title, url_for_page(profile) %></h2>
+	<h3><%= profile.subtitle %></h3>
+	<%= link_to((image_tag profile.image.url(:thumbnail)), url_for_page(profile)) %>
+	<p><%= profile.intro %>&nbsp;<%= link_to "Read more", url_for_page(profile), :class => 'more' %>
+	</p>
+</div>
 <% end %>
-</ul>

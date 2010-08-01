@@ -76,7 +76,14 @@ module Public::PageTypes
   end  
   
   def gallery_list
-    @galleries = @page.visible_children(:page => params[:page], :order => "publish_date DESC")
+    if params[:id]
+      @galleries = Gallery.all
+      @gallery = Gallery.find(params[:id])
+      @page_title = "#{@gallery.name}"
+      render :template => '/public/page_types/gallery' and @rendered = true
+    else
+      @galleries = Gallery.all
+    end
   end
 
   def link_list
