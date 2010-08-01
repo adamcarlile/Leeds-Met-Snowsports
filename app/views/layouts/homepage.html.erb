@@ -93,9 +93,14 @@ $(document).ready(function() {
 	<ul id="promos">
   	<% @promos_bottom.each do |promo| %>
 		<li class="<%= cycle('blue','yellow','pink') %>">
-			<h4><%= link_to s(promo.title), (if promo.page : view_page_path(promo.page.slug_path) else '#' end)  %></h4>
+			<% if promo.override_url.empty? %>
+				<% link = view_page_path(promo.page.slug_path) if promo.page %>
+			<% else %>
+				<% link = override_url %>
+			<% end %>
+			<h4><%= link_to s(promo.title), link  %></h4>
 			<p><%= promo.intro %></p>
-			<%= link_to (image_tag promo.image.url(:medium)), (if promo.page : view_page_path(promo.page.slug_path) else '#' end) %>
+			<%= link_to (image_tag promo.image.url(:medium)), link %>
 		</li>
 	<% end %>
 	</ul>
