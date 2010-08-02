@@ -1,33 +1,33 @@
-<%= render 'public/shared/page_body' %>
-<% content_for :head do %>
-<script type="text/javascript">
-$(document).ready(function(){
-	$('.accordian').accordion({
-		active: false,
-		collapsible: true,
-		autoHeight: false,
-		header: 'div.event'
-	});
-})
-</script>
-<% end %>
 <% content_for :support do %>
-<%= render :partial => 'public/shared/news' %>
+	<h2><%= @root_page.to_s %></h2>
+	<% Event.limited.group_by(&:event_month).sort.each do |event_month, archive| %>
+	<div id="month_<%= event_month %>" class="archive">
+		<ul class="nav">
+			<li class="withsubnav"><a href="#"><%= Date::MONTHNAMES[event_month] %></a>
+			<ul>
+			<% archive.each do |event| %>
+				<li><a href="<%= event_path event %>" title="<%= event.title %>"><%= event.title %></a></li>
+			<% end %>
+			</ul>
+			</li>
+		</ul>
+	</div>
+	<% end %>
+	<%= render :partial => 'public/shared/news' %>
 <% end %>
-<div class="accordian">
-<% Event.limited.each do |event| %>
-	<div class="divider event">
+
+<%= render 'public/shared/page_body' %>
+<% @events_list.each do |event| %>
+<div class="divider">
 	<%= datebox(event.start) %>
-		<h2><%= link_to event.title, '#' %></h2>
-		<h3><%= event.address %></h3>
-		<h4><%= event.start.strftime("%b %d, %Y - %I:%M %p") %><%= " until " + event.finish.strftime("%b %d, %Y - %I:%M %p") %></h4>
-	</div>
-	<div class="content">
-		<img src="<%= "http://maps.google.com/maps/api/staticmap?center=#{event.lat},#{event.lng}&amp;zoom=14&amp;size=300x200&amp;key=#{google_maps_key}&amp;sensor=false&amp;markers=color:red|#{event.lat},#{event.lng}" %>" alt="Google maps location">
-		<h4><span>Start Time:</span> <%= event.start.strftime("%I:%M %p")%></h4>
-		<h4><span>Finish Time:</span> <%= event.finish.strftime("%I:%M %p")%></h4>
-		<p><%= event.intro %></p>
-		<%= event.body %>
-	</div>
-<% end %>
+	<h2><%= link_to "#{event.title}", event_path(event) %></h2>
+	<h3><%= event.address %></h3>
+	<h4><%= content_tag('strong', event.start.strftime("%b %d, %Y - %I:%M %p")) %><%= " until " + content_tag('strong', event.finish.strftime("%b %d, %Y - %I:%M %p")) %></h4>
+	<% if event.image %>
+		<%= link_to image_tag(event.image(:thumbnail)), event_path(event) %>
+	<% end %>
+	<p><%= event.intro %>&nbsp;<%= link_to 'Read more', event_path(event), :class => 'more' %>
+	</p>
 </div>
+<% end %>
+<%= will_paginate @events_list %>

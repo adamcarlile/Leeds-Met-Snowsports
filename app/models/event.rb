@@ -23,5 +23,14 @@ class Event < ActiveRecord::Base
   def self.limited
     find(:all, :order => "start ASC", :conditions => "finish >= '#{Time.now.to_formatted_s(:db)}'")
   end
+  
+  make_permalink
+  def to_param
+    "#{start.to_date.to_s}-#{title}".parameterize
+  end
+  
+  def event_month
+  	start.month
+  end
     
 end

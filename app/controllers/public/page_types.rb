@@ -95,4 +95,18 @@ module Public::PageTypes
     @gallery = @page
   end
   
+  def view_event
+    @events = Event.limited
+    if params[:id]
+      @root_page = Page.find_by_slug('events')
+      @event = Event.find(params[:id])
+      render :template => '/public/events/show' and @rendered = true
+    else
+      @page = Page.find_by_slug('events')
+      @root_page = @page
+      @events_list = Event.limited.paginate(:page => params[:page], :per_page => 10)
+      render :template => '/public/page_types/events_index' and @rendered = true
+    end
+  end
+  
 end

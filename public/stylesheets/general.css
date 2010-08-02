@@ -723,9 +723,9 @@ ul.profilelist li a.more:hover
 
 div.datebox
 {
-	float:left;
+	float:right;
 	width:55px;
-	margin-right:20px;
+	margin-left:20px;
 }
 
 div.datebox span.day
@@ -766,6 +766,12 @@ div.divider h2
 {
 	font-size:2em;
 	font-weight:bold;
+}
+
+div.divider h4
+{
+	margin-top:5px;
+	color:#999999;
 }
 
 div.divider p
@@ -886,7 +892,7 @@ div.sidenews ul li:last-child
 	border:none;
 }
 
-div.sidenews ul li h4 a, div.sideevents ul li h4
+div.sidenews ul li h4 a, div.sideevents ul li h4 a
 {
 	font-size:1.6em;
 	color:#221e1f;
@@ -895,7 +901,7 @@ div.sidenews ul li h4 a, div.sideevents ul li h4
 	text-decoration:none;
 }
 
-div.sidenews ul li h4 a:hover
+div.sidenews ul li h4 a:hover, div.sideevents ul li h4 a:hover
 {
 	color:#ec2492;
 }
@@ -950,12 +956,12 @@ div#newsevents div.news ul li a:hover img
 	border-color:#EC2492;
 }
 
-div#newsevents div.news ul li h4 a:hover 
+div#newsevents div.news ul li h4 a:hover, div#newsevents div.events ul li h4 a:hover
 {
 	color:#EC2492;
 }
 
-div#newsevents div.news ul li h4 a 
+div#newsevents div.news ul li h4 a, div#newsevents div.events ul li h4 a 
 {
 	color:#221E1F;
 	font-size:1.8em;
@@ -1032,7 +1038,6 @@ div.events ul li
 
 div.events ul li h4
 {
-	font-size:1.6em;
 	letter-spacing:-1px;
 	font-weight:bold;
 	margin-bottom:5px;
@@ -1162,14 +1167,14 @@ h1 span.subtitle
 	font-size:0.5em;
 }
 
-div.copy ul
+div.copy ul, div.copy ol
 {
 	margin-top:10px;
 	margin-bottom:20px;
 	margin-left:10px;
 }
 
-div.copy ul li
+div.copy ul li, div.copy ol li
 {
 	margin-left:10px;
 	list-style:disc;
@@ -1177,6 +1182,11 @@ div.copy ul li
 	margin-bottom:5px;
 	font-size:1.2em;
 	line-height:1.6em;
+}
+
+div.copy ol li
+{
+	list-style:decimal;
 }
 
 ul#home_gallery
@@ -1192,4 +1202,59 @@ ul#home_gallery li.four
 ul#home_gallery li.six
 {
 	margin-right:0px;
+}
+
+div.datetime h4
+{
+	font-size:1.9em;
+	font-weight:bold;
+	letter-spacing:-1px;
+	margin-bottom:5px;
+}
+
+div.datetime h4 span
+{
+	font-size:0.8em;
+	color:#999999;
+}
+
+h2.sub
+{
+	font-size:1.6em;
+	font-weight:bold;
+	color:#999999;
+	margin-bottom:10px;
+	margin-top:-10px;
+}
+
+div.copy h2
+{
+	font-size:2.2em;
+	font-weight:bold;
+	margin-bottom:10px;
+	letter-spacing:-1px;
+}
+
+div.copy h3
+{
+	font-size:2.0em;
+	font-weight:bold;
+	margin-bottom:10px;
+	letter-spacing:-1px;
+}
+
+div.copy h4
+{
+	font-size:1.8em;
+	font-weight:bold;
+	margin-bottom:10px;
+	letter-spacing:-1px;
+}
+
+div.copy h5
+{
+	font-size:1.6em;
+	font-weight:bold;
+	margin-bottom:10px;
+	letter-spacing:-1px;
 }

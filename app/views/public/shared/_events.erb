@@ -4,7 +4,7 @@
 		<% Event.homepage.each do |event| %>
 		<li>
 			<%= datebox(event.start) %>
-			<h4><%= event.title %></h4>
+			<h4><%= link_to event.title, event_path(event) %></h4>
 			<p><%= event.address %></p>
 		</li>
 		<% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100802120539) do
+ActiveRecord::Schema.define(:version => 20100802192451) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -69,7 +69,10 @@ ActiveRecord::Schema.define(:version => 20100802120539) do
     t.string   "town"
     t.string   "county"
     t.string   "post_code"
+    t.string   "permalink"
   end
+
+  add_index "events", ["permalink"], :name => "index_events_on_permalink"
 
   create_table "file_uploads", :force => true do |t|
     t.string   "file_file_name"
