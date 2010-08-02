@@ -1,5 +1,7 @@
 class Admin::PagesController < Admin::BaseController
   setup_resource_controller
+  
+  before_filter :load_galleries
 
   index.before do
     if params[:view] == 'list'
@@ -84,6 +86,12 @@ class Admin::PagesController < Admin::BaseController
 
     @page.parent = @parent if @parent
     @object = @page
+  end
+  
+  private
+  
+  def load_galleries
+    @galleries = Gallery.all
   end
 
 end

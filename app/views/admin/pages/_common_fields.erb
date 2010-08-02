@@ -8,6 +8,15 @@
         </optgroup>
       </select>
   </td>
+	<td>
+		<%= f.label :gallery_id, 'Associated Gallery' %><br />
+		<select name="page[gallery_id]" id="page_gallery_id">
+		  <option value="">None</option>
+		  <%- @galleries.each do |item| %>
+		  <option value="<%= item.id %>"<%= " selected='selected'" if item.id == @page.gallery_id %>><%= item.name %></option>
+		  <% end %>
+		</select><br />
+	</td>
   <td>
       <label>
         Published?<br />

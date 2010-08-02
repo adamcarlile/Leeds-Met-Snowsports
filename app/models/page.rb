@@ -12,6 +12,8 @@ class Page < ActiveRecord::Base
   validates_presence_of :title
 
   acts_as_tree :order => 'position'
+  
+  belongs_to :gallery
 
   before_save :set_slug, :set_paths
   after_save :set_child_paths

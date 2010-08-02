@@ -9,6 +9,7 @@ module Public::PageTypes
   
   def homepage
     @promos_bottom = Promo.bottom
+    @random_images = GalleryImage.all(:order => 'RAND()', :limit => 6)
     @promos_top = Promo.top
     @news = NewsItem.homepage
     @events = Event.homepage
