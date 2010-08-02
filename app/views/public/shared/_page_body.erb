@@ -3,5 +3,6 @@
 <% if @page.intro?  %>
 <div id="intro"><p><%= @page.intro %></p></div>
 <% end %>
+<%= render :partial => 'public/shared/page_gallery' %>
 <%= @page.body %>
 </div>
