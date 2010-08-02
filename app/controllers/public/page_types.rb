@@ -100,9 +100,11 @@ module Public::PageTypes
     if params[:id]
       @root_page = Page.find_by_slug('events')
       @event = Event.find(params[:id])
+      @page_title = @event.title
       render :template => '/public/events/show' and @rendered = true
     else
       @page = Page.find_by_slug('events')
+      @page_title = @page.title
       @root_page = @page
       @events_list = Event.limited.paginate(:page => params[:page], :per_page => 10)
       render :template => '/public/page_types/events_index' and @rendered = true
