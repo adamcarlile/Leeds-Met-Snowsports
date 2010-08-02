@@ -1109,7 +1109,7 @@ div#footer p
 
 ul.gallery
 {
-	
+	overflow:hidden;
 }
 
 ul.gallery li
@@ -1177,4 +1177,19 @@ div.copy ul li
 	margin-bottom:5px;
 	font-size:1.2em;
 	line-height:1.6em;
+}
+
+ul#home_gallery
+{
+	margin-top:20px;
+}
+
+ul#home_gallery li.four
+{
+	margin-right:10px;
+}
+
+ul#home_gallery li.six
+{
+	margin-right:0px;
 }

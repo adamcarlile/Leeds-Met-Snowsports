@@ -63,6 +63,9 @@ $(document).ready(function() {
   	<%= render_breadcrumb %>
   	<%= render_flash %>
 	<%= render :partial => 'public/shared/player' %>
+	<ul class="gallery" id="home_gallery">
+		<%= render :partial => 'public/shared/image', :collection => @random_images %>
+	</ul>
 	<div id="newsevents">
 		<div class="news">
 			<h2><%= s("LATEST NEWS") %></h2>
