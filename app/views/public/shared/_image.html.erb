@@ -1,5 +1,3 @@
 <li class="<%= cycle('one','two','three', 'four', 'five', 'six')%>">
-	<a href="/gallery?id=<%= image.gallery.id %>">
-		<%= image_tag(image.file.url(:thumb), :width => 138) %>
-	</a>
+	<%= link_to image_tag(image.file.url(:thumb), :width => 138), gallery_path(image.gallery) %>		
 </li>
