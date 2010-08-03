@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem 'RedCloth', :lib => 'redcloth'
   config.gem 'faker'
   config.gem 'httparty'
+  config.gem 'grackle'
 
   # Only load the plugins named here, by default all plugins in vendor/plugins are loaded
   #config.plugins = %W( will_paginate acts_as_ferret acts_as_list acts_as_tree exception_notification file_column ultrasphinx)
