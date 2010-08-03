@@ -10,7 +10,7 @@ $(document).ready(function(){
 <h2><%= @page.title %></h2>
 <ul class="nav">
 	<% @galleries.each do |gallery| %>
-	<li><a href="/gallery?id=<%= gallery.id %>"><%= gallery.name %></a></li>
+	<li><%= link_to gallery.name, gallery_path(gallery) %></li>
 	<% end %>
 </ul>
 <%= render :partial => 'public/shared/news' %>

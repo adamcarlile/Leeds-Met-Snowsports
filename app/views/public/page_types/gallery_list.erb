@@ -2,7 +2,7 @@
 <h2><%= @page.title %></h2>
 <ul class="nav">
 	<% @galleries.each do |gallery| %>
-	<li><a href="/gallery?id=<%= gallery.id %>"><%= gallery.name %></a></li>
+	<li><%= link_to gallery.name, gallery_path(gallery) %></li>
 	<% end %>
 </ul>
 <%= render :partial => 'public/shared/news' %>
@@ -14,10 +14,8 @@
 <ul class="gallery">
 <% @galleries.each do |gallery| %>
 	<li class="<%= cycle('one','two','three')%>">
-		<a href="/gallery?id=<%= gallery.id %>">
-			<%= image_tag gallery.gallery_images.first.file.url(:thumb) %>
-		</a>
-		<p><a href="/gallery?id=<%= gallery.id %>"><%= gallery.name %></a></p>
+			<%= link_to image_tag(gallery.gallery_images.first.file.url(:thumb)), gallery_path(gallery) %>
+		<p><%= link_to gallery.name, gallery_path(gallery) %></p>
 	</li>
 <% end %>
 </ul>

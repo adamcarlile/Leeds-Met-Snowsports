@@ -5,6 +5,7 @@ class Gallery < ActiveRecord::Base
   
   default_scope :order => :position
     
+  make_permalink
   def to_param
     "#{id}-#{name.parameterize}"
   end

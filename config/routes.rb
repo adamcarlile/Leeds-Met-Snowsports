@@ -35,6 +35,7 @@ ActionController::Routing::Routes.draw do |map|
   # All other pages
   map.with_options(:controller => 'public/pages') do |m|
     m.event        '/events/:id',             :action => 'view_event'
+    m.gallery      '/gallery/:id',            :action => 'view_gallery'
     m.homepage     '',                        :action => 'view', :slug_path => 'home'
     m.view_page    '*slug_path.:format',      :action => 'view'
     m.view_page    '*slug_path',              :action => 'view'

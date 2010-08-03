@@ -111,4 +111,17 @@ module Public::PageTypes
     end
   end
   
+  def view_gallery
+    @galleries = Gallery.all
+    @page = Page.find_by_slug('gallery')
+    if params[:id]
+      @gallery = Gallery.find(params[:id])
+      @page_title = "#{@gallery.name}"
+      render :template => '/public/page_types/gallery' and @rendered = true
+    else
+      @page_title = @page.title
+      render :template => '/public/page_types/gallery_list' and @rendered = true
+    end
+  end
+  
 end
