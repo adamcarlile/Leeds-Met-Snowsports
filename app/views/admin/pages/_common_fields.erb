@@ -17,6 +17,15 @@
 		  <% end %>
 		</select><br />
 	</td>
+	<td>
+		<%= f.label :gallery_id, 'Associated Profile' %><br />
+		<select name="page[profile_id]" id="page_profile_id">
+		  <option value="">None</option>
+		  <%- @profiles.each do |item| %>
+		  <option value="<%= item.id %>"<%= " selected='selected'" if item.id == @page.profile_id %>><%= item.title %></option>
+		  <% end %>
+		</select><br />
+	</td>
   <td>
       <label>
         Published?<br />

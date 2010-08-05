@@ -1,0 +1,8 @@
+<% if @page.profile %>
+<div class="page_profile">
+	<%= link_to image_tag(@page.profile.image.url(:thumbnail)), url_for_page(@page.profile) %>
+	<h3><span>Written by:</span> <%= link_to @page.profile.title, url_for_page(@page.profile) %></h3>
+	<h4><%= @page.profile.subtitle %></h4>
+	<p><%= @page.profile.intro %> <%= link_to 'Read more', url_for_page(@page.profile), :class => 'more'%></p>
+</div>
+<% end %>

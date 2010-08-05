@@ -9,8 +9,13 @@ class Public::BaseController < ApplicationController
   private
   
   def get_twitter_status
-    c = Grackle::Client.new
-    @twitter = c.users.show? :id => 'lmsnowsports'
+    begin
+      c = Grackle::Client.new
+      @twitter = c.users.show? :id => 'lmsnowsports'
+      @twitter_message = @twitter.status.text
+    rescue Grackle::TwitterError
+      @twitter_message = "Oops, looks like we had a problem"
+    end
   end
 
 end

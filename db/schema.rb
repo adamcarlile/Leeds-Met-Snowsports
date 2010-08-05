@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100803192634) do
+ActiveRecord::Schema.define(:version => 20100805203319) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20100803192634) do
     t.datetime "image_updated_at"
     t.string   "subtitle"
     t.integer  "gallery_id"
+    t.string   "profile_id"
   end
 
   create_table "promos", :force => true do |t|

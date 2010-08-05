@@ -1,7 +1,7 @@
 class Admin::PagesController < Admin::BaseController
   setup_resource_controller
   
-  before_filter :load_galleries
+  before_filter :load_galleries, :load_profiles
 
   index.before do
     if params[:view] == 'list'
@@ -92,6 +92,10 @@ class Admin::PagesController < Admin::BaseController
   
   def load_galleries
     @galleries = Gallery.all
+  end
+  
+  def load_profiles
+    @profiles = Profile.all
   end
 
 end

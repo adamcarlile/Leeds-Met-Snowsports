@@ -1,6 +1,8 @@
 class Page < ActiveRecord::Base
   include NamedScopeHelpers
   
+  belongs_to :profile
+  
   # Get a list of valid type class names from the contents of the page_types directory
   TYPE_CLASSES = [:page] + Dir[RAILS_ROOT + '/app/models/page_types/*.rb'].map{|f| f.split('/').last.gsub(/\.rb$/,'').to_sym  }
 

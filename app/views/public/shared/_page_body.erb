@@ -1,8 +1,12 @@
 <h1><%= h @page.title %></h1>
-<div class="copy">
 <% if @page.intro?  %>
+<div class="copy">
 <div id="intro"><p><%= @page.intro %></p></div>
+</div>
 <% end %>
 <%= render :partial => 'public/shared/page_gallery' %>
+<div class="copy">
 <%= @page.body %>
+<div style="clear:both"></div>
 </div>
+<%= render :partial => 'public/shared/page_profile' %>
