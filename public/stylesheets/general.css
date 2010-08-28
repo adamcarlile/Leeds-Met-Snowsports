@@ -73,16 +73,47 @@ ul#main_navigation li a
 	color:#ffffff;
 	text-decoration:none;
 	height:54px;
-	padding-left:38px;
-	padding-right:38px;
 	line-height:58px;
 }
 
 ul#main_navigation li.last a
 {
 	background-image:none;
-	padding-left:42px;
-	padding-right:42px;
+}
+
+ul#main_navigation li.gallery a
+{
+	width:123px;
+}
+
+ul#main_navigation li.home a
+{
+	width:115px;
+}
+
+ul#main_navigation li.news a
+{
+	width:113px;
+}
+
+ul#main_navigation li.events a
+{
+	width:122px;
+}
+
+ul#main_navigation li.who-we-are a
+{
+	width:154px;
+}
+
+ul#main_navigation li.holidays-trips a
+{
+	width:186px;
+}
+
+ul#main_navigation li.teams a
+{
+	width:125px;
 }
 
 ul#main_navigation li a:hover
