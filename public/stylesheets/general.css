@@ -1129,8 +1129,8 @@ div.event
 
 div#footer
 {
-	margin-top:10px;
-	padding-top:10px;
+	margin-top:20px;
+	padding-top:30px;
 	border-top:1px solid #cccccc;
 	margin-bottom:20px;
 	overflow:hidden;
@@ -1369,3 +1369,116 @@ div.page_profile a.more:hover
 {
 	text-decoration:underline;
 }
+
+div#sponsors h3
+{
+	font-size:1.6em;
+	letter-spacing:-1px;
+	font-weight:bold;
+	padding-left:5px;
+	padding-bottom:10px;
+}
+
+div#sponsors ul
+{
+	float:left;
+	width:640px;
+}
+
+div#sponsors ul li
+{
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+
+div#sponsors ul li a
+{
+	display:block;
+	width:140px;
+	height:60px;
+	text-indent:-1000px;
+	overflow:hidden;
+	background-color:#cccccc;
+	background-position:center;
+	background-repeat:no-repeat;
+}
+
+div#sponsors ul li.h4th a
+{
+	background-image:url(../skin/sponsors/h4th.png);
+}
+
+div#sponsors ul li.h4th a:hover
+{
+	background-image:url(../skin/sponsors/h4th_hover.png);
+}
+
+div#sponsors ul li.otp a
+{
+	background-image:url(../skin/sponsors/otp.png);
+}
+
+div#sponsors ul li.otp a:hover
+{
+	background-image:url(../skin/sponsors/otp_hover.png);
+}
+
+div#sponsors ul li.snozone a
+{
+	background-image:url(../skin/sponsors/snozone.png);
+}
+
+div#sponsors ul li.snozone a:hover
+{
+	background-image:url(../skin/sponsors/snozone_hover.png);
+}
+
+div#sponsors ul li.chaos a
+{
+	background-image:url(../skin/sponsors/thechaos.png);
+}
+
+div#sponsors ul li.chaos a:hover
+{
+	background-image:url(../skin/sponsors/thechaos_hover.png);
+}
+
+div#sponsors ul li.voodoo a
+{
+	background-image:url(../skin/sponsors/voodoo.png);
+}
+
+div#sponsors ul li.voodoo a:hover
+{
+	background-image:url(../skin/sponsors/voodoo_hover.png);
+}
+
+div#sponsors ul li.mojo a
+{
+	background-image:url(../skin/sponsors/mojo.png);
+}
+
+div#sponsors ul li.mojo a:hover
+{
+	background-image:url(../skin/sponsors/mojo_hover.png);
+}
+
+div#sponsors ul li.bargin a
+{
+	background-image:url(../skin/sponsors/hermans.png);
+}
+
+
+div#sponsors ul li.bargin a:hover
+{
+	background-image:url(../skin/sponsors/hermans_hover.png);
+}
+
+
+
+
+<li class="bargin">
+
+
+
