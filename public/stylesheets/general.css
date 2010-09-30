@@ -1399,7 +1399,7 @@ div#sponsors ul li a
 	height:60px;
 	text-indent:-1000px;
 	overflow:hidden;
-	background-color:#cccccc;
+	background-color:#ffffff;
 	background-position:center;
 	background-repeat:no-repeat;
 }
@@ -1475,10 +1475,13 @@ div#sponsors ul li.bargin a:hover
 	background-image:url(../skin/sponsors/hermans_hover.png);
 }
 
+div#sponsors ul li.jager a
+{
+	background-image:url(../skin/sponsors/jagerbomb.png);
+}
 
-
-
-<li class="bargin">
-
-
+div#sponsors ul li.jager a:hover
+{
+	background-image:url(../skin/sponsors/jagerbomb_hover.png);
+}
 

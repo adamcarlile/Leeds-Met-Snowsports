@@ -22,7 +22,7 @@
 		<select name="page[profile_id]" id="page_profile_id">
 		  <option value="">None</option>
 		  <%- @profiles.each do |item| %>
-		  <option value="<%= item.id %>"<%= " selected='selected'" if item.id == @page.profile.id %>><%= item.title %></option>
+		  <option value="<%= item.id %>"<%= " selected='selected'" if item == @page.profile %>><%= item.title %></option>
 		  <% end %>
 		</select><br />
 	</td>
