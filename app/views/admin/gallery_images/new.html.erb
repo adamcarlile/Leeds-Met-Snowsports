@@ -47,6 +47,7 @@ $.ajaxSetup({
 
 <h2>Uploaded Images</h2>
 <ul class="gallerylist">
+	<% if @object.gallery %>
 	<% @object.gallery.gallery_images.each do |image| %>
 	<li class="<%= cycle('one','two','three','four')%>" id="gallery_image_<%= image.id -%>">
 		<%= image_tag image.file.url(:thumb) %>
@@ -55,5 +56,6 @@ $.ajaxSetup({
 	    <%= link_to "#{image_tag('/images/admin/delete.gif')} Delete", object_url(image), :method => :delete, :confirm => 'Are you sure?' %>
 		</div>
 	</li>
+	<% end %>
 	<% end %>
 </ul>	
