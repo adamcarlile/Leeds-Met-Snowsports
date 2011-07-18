@@ -2,7 +2,7 @@
 # you don't control web/app server and can't set it the proper way
 ENV['RAILS_ENV'] ||= 'production'
 
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.11' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
   #config.plugins = %W( will_paginate acts_as_ferret acts_as_list acts_as_tree exception_notification file_column ultrasphinx)
 
   # Add additional load paths for your own custom dirs
-  config.load_paths += %W( #{RAILS_ROOT}/app/models/page_types )
+  config.autoload_paths += %W( #{RAILS_ROOT}/app/models/page_types )
 
   # Force all environments to use the same logger level 
   # (by default production uses :info, the others :debug)
