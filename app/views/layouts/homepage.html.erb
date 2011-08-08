@@ -80,7 +80,9 @@ $(document).ready(function() {
 				<% end %>
 			</ul>
 		</div>
-		<div class="events">
+		<div class="facebook">
+			<fb:like-box href="http://www.facebook.com/leedsmetsnowsports" width="300" show_faces="true" border_color="" stream="false" header="false"></fb:like-box>
+			<!--
 			<h2><%= s("NEXT EVENTS") %></h2>
 			<ul>
 				<% @events.each do |event| %>
@@ -90,7 +92,8 @@ $(document).ready(function() {
 					<p><%= event.address %></p>
 				</li>
 				<% end %>
-			</ul>	
+			</ul>
+			-->	
 		</div>
 	</div>
 	<ul id="promos">

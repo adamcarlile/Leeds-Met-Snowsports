@@ -1385,6 +1385,13 @@ div#sponsors ul
 	width:640px;
 }
 
+div.facebook-header
+{
+	position: absolute;
+	right: 300px;
+	top: 20px;
+}
+
 div#sponsors ul li
 {
 	float:left;
@@ -1402,6 +1409,11 @@ div#sponsors ul li a
 	background-color:#ffffff;
 	background-position:center;
 	background-repeat:no-repeat;
+}
+
+div.facebook
+{
+	float: right;
 }
 
 div#sponsors ul li.h4th a
