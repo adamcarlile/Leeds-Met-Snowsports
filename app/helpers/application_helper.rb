@@ -15,12 +15,12 @@ module ApplicationHelper
     url << object.send("#{method}_options")[:base_url] << "/"
     url << relative_path
   end
-  
+
   #slashify the string
   def s(string)
     string.gsub(/\ /,'<span class="white">/</span>')
   end
-  
+
   def uploaded_image(object, method, suffix=nil, options = {}, alternate_src = nil)
     return '' if object.nil?
     url = uploaded_file_url(object, method, suffix)
@@ -33,7 +33,7 @@ module ApplicationHelper
       image_tag(alternate_src, options)
     end
   end
-  
+
   def uploaded_file_url(object, method, suffix=nil)
     return nil unless object.send(method,suffix) and File.exists?(object.send(method,suffix))
     relative_path = object.send("#{method}_relative_path", suffix)
@@ -42,7 +42,7 @@ module ApplicationHelper
     url << object.send("#{method}_options")[:base_url] << "/"
     url << relative_path
   end
-    
+
 
 	# Render a div for each flash giving it an id from its hash key e.g. "error" or "notice"
 	def render_flash
@@ -65,13 +65,13 @@ module ApplicationHelper
 
 	def error_message(model, method)
     object = instance_variable_get("@#{model}")
-    if object and !object.errors.empty? 
+    if object and !object.errors.empty?
       errors = instance_variable_get("@#{model}").errors.on(method)
       error = content_tag('span', (errors.is_a?(Array) ? errors.first : errors), :class => 'formError')
     end
     error ? "<br />#{error}" : ''
 	end
-	
+
   def format_date(date)
     return '' if date.nil?
     date.to_time.strftime("%B %d, %Y")
@@ -102,11 +102,11 @@ module ApplicationHelper
   def jquery
     %(<script src="/javascripts/jquery-1.3.2.min.js" type="text/javascript"></script>)
   end
-  
+
   def jflash
     %(<script src="/javascripts/jquery.swfobject.js" type="text/javascript"></script>)
   end
-  
+
   def jtools
     %(<script src="/javascripts/jquery.tools.js" type="text/javascript"></script>)
   end
@@ -114,12 +114,12 @@ module ApplicationHelper
   def jmaps
     %(<script src="/javascripts/jquery.jmap.js" type="text/javascript"></script>)
   end
-  
+
   def datebox(date)
     output = %(<div class="datebox">\n)
     output += content_tag('span', date.strftime("%d"), :class => "day")
     output += content_tag('span', date.strftime("%B"), :class => "month")
-    output += %(</div)
+    output += %(</div>)
   end
 
   #
@@ -151,5 +151,5 @@ module ApplicationHelper
       return output
     end
   end
-  
+
 end
