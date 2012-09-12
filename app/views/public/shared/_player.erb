@@ -1,6 +1,7 @@
 <div id="player">
 	<div class="panes">
-		<div class="movie">
+		<div>
+			<object width="629" height="353"><param name="allowfullscreen" value="true"></param><param name="movie" value="http://www.facebook.com/v/10151089801528897"></param><embed src="http://www.facebook.com/v/10151089801528897" type="application/x-shockwave-flash" allowfullscreen="1" width="629" height="353"></embed></object>
 		</div>
 		<%- @promos_top.each do |promo| %>
 		<div>
@@ -12,7 +13,7 @@
 		<%- end %>
 	</div>
 	<ul class="buttons">
-		<li><h4>Snowsports? In Leeds?</h4><p>The 2009 snowsports promo movie</p><span class="arrow"></span></li>
+		<li><h4>Snowsports? In Leeds?</h4><p>2012/13 Snowsports Movie</p><span class="arrow"></span></li>
 		<%- @promos_top.each do |promo| %>
 		<li><h4><%= promo.title %></h4><p><%= promo.subtitle %></p><span class="arrow"></span></li>
 		<%- end %>

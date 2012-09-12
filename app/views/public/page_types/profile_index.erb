@@ -1,11 +1,9 @@
 <%= render 'public/shared/page_body' %>
 
 <% @page.children.each do |profile| %>
-<div class="divider">		
-	<h2><%= link_to profile.title, url_for_page(profile) %></h2>
-	<h3><%= profile.subtitle %></h3>
-	<%= link_to((image_tag profile.image.url(:thumbnail)), url_for_page(profile)) %>
-	<p><%= profile.intro %>&nbsp;<%= link_to "Read more", url_for_page(profile), :class => 'more' %>
-	</p>
+<div class="profile-card<%= cycle('','',' last') %>">
+	<%= link_to((image_tag profile.image.url(:large_thumb), :width => 180), url_for_page(profile)) %>
+    <h2><%= profile.title %></h2>
+    <h3><%= profile.subtitle %></h3>
 </div>
 <% end %>

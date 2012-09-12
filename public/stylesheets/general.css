@@ -1,4 +1,4 @@
-/* 
+/*
 	Sitename
 	designed and created by name
 */
@@ -91,6 +91,11 @@ ul#main_navigation li.home a
 	width:115px;
 }
 
+ul#main_navigation li.merch a
+{
+	width:115px;
+}
+
 ul#main_navigation li.news a
 {
 	width:113px;
@@ -137,7 +142,7 @@ ul#main_navigation li.current a
 {
 	background-image: url('../skin/header/navbar_pink.jpg');
 	background-position: center;
-	background-repeat:no-repeat;	
+	background-repeat:no-repeat;
 }
 
 ul#main_navigation li.current.first a
@@ -164,7 +169,7 @@ ul#promos li
 	height:229px;
 	background-repeat: no-repeat;
 	float:left;
-	margin-left:20px;	
+	margin-left:20px;
 	position:relative;
 	overflow:hidden;
 }
@@ -432,7 +437,7 @@ div.right ul.nav li a
 	color:#ffffff;
 }
 
-div.right ul.nav li.withsubnav 
+div.right ul.nav li.withsubnav
 {
 	border-bottom:1px solid #9b9530;
 	border-right:none;
@@ -466,7 +471,7 @@ div.right ul.nav li.withsubnav ul li a
 	border-top:1px solid #cccccc;
 }
 
-div.right ul.nav li.withsubnav ul li a:hover, div.right ul.nav li.withsubnav ul li.current a 
+div.right ul.nav li.withsubnav ul li a:hover, div.right ul.nav li.withsubnav ul li.current a
 {
 	background-color:#bfeefb;
 }
@@ -587,9 +592,9 @@ div.left ul.profile li a span.position
 #cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
 #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
 
-/* 
+/*
     ColorBox example user style
-    The following rules are ordered and tabbed in a way that represents the order/nesting of the generated HTML, 
+    The following rules are ordered and tabbed in a way that represents the order/nesting of the generated HTML,
     in hope that this will make the relationship easier to understand. Thanks, jack@colorpowered.com
 */
 #cboxOverlay{background:url(../skin/lightbox/overlay.png) 0 0 repeat;}
@@ -616,8 +621,8 @@ div.left ul.profile li a span.position
                 #cboxLoadingGraphic{background:url(../skin/lightbox/loading.gif) center center no-repeat;}
 		#cboxClose{position:absolute; bottom:0; right:0; background:url(../skin/lightbox/controls.png) -50px 0px no-repeat; width:25px; height:25px; text-indent:-9999px;}
 		#cboxClose.hover{background-position:-50px -25px;}
-		
-		
+
+
 #cboxLoadedContent h1
 {
 	font-size:2.5em;
@@ -673,7 +678,7 @@ div.copy img
 
 ul.profilelist
 {
-	
+
 }
 
 ul.profilelist li
@@ -982,7 +987,7 @@ div#newsevents div.news ul li img
 	margin-right:10px;
 }
 
-div#newsevents div.news ul li a:hover img 
+div#newsevents div.news ul li a:hover img
 {
 	border-color:#EC2492;
 }
@@ -992,7 +997,7 @@ div#newsevents div.news ul li h4 a:hover, div#newsevents div.events ul li h4 a:h
 	color:#EC2492;
 }
 
-div#newsevents div.news ul li h4 a, div#newsevents div.events ul li h4 a 
+div#newsevents div.news ul li h4 a, div#newsevents div.events ul li h4 a
 {
 	color:#221E1F;
 	font-size:1.8em;
@@ -1081,7 +1086,7 @@ div.accordian div.content img
 	margin-right:10px;
 }
 
-div.accordian div.content 
+div.accordian div.content
 {
 	overflow:hidden;
 	width:607px;
@@ -1135,6 +1140,18 @@ div#footer
 	margin-bottom:20px;
 	overflow:hidden;
 	clear:both;
+	background-image: url(../skin/footer_roundel.jpg);
+	background-repeat: no-repeat;
+	background-position: left center
+
+}
+
+div#footer div.inner
+{
+	background-image: url(../skin/footer_tagline.jpg);
+	height: 180px;
+	background-position: right center;
+	background-repeat: no-repeat;
 }
 
 div#footer p
@@ -1497,3 +1514,52 @@ div#sponsors ul li.jager a:hover
 	background-image:url(../skin/sponsors/jagerbomb_hover.png);
 }
 
+div.profile-card
+{
+	background-color: #41B3D3;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	width: 190px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+div.profile-card.last
+{
+	margin-right: 0px;
+}
+
+div.profile-card img
+{
+	display: inline-block;
+}
+
+div.profile-card h2
+{
+	color: #ffffff;
+	font-size:1.6em;
+	letter-spacing:-1px;
+	font-weight:bold;
+	margin-top:6px;
+	margin-bottom:2px;
+}
+
+div.profile-card h3
+{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+div.divider img
+{
+	margin-top:10px;
+	float:left;
+	border:5px solid #41B3D3;
+}
+
+div.divider a:hover img
+{
+	border-color:#EC2492;
+}
