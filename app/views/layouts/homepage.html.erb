@@ -1,32 +1,32 @@
 <% content_for :head do %>
 <script type="text/javascript">
 $(document).ready(function() {
-	
-	$(function() { 
-	    var rotateDelay = 4000; //milliseconds 
-	    var rotateTabs=true;     
-	    var $tabItems = $('div#player ul li').click(function(){ //clicking a tab should cancel the rotate 
-	        rotateTabs=false; 
-	    }); 
-	    var tabs = $("div#player ul").tabs('div#player div.panes > div', {api:true, effect: 'fade'}); //create the tabs and return the api 
-	    function doRotateTabs(){ //recursive function 
-	        if (rotateTabs) { 
-	            setTimeout(function(){ 
-	                if (!rotateTabs) return; 
-	                if(tabs.getIndex() == $tabItems.length-1){ //last tab. restart on first tab 
-	                    tabs.click(0); 
-	                } 
-	                else { 
-	                    tabs.next(); 
-	                } 
-	                doRotateTabs(); 
-	            }, rotateDelay); 
-	        } 
-	    } 
-	    doRotateTabs(); 
+
+	$(function() {
+	    var rotateDelay = 4000; //milliseconds
+	    var rotateTabs=true;
+	    var $tabItems = $('div#player ul li').click(function(){ //clicking a tab should cancel the rotate
+	        rotateTabs=false;
+	    });
+	    var tabs = $("div#player ul").tabs('div#player div.panes > div', {api:true, effect: 'fade'}); //create the tabs and return the api
+	    function doRotateTabs(){ //recursive function
+	        if (rotateTabs) {
+	            setTimeout(function(){
+	                if (!rotateTabs) return;
+	                if(tabs.getIndex() == $tabItems.length-1){ //last tab. restart on first tab
+	                    tabs.click(0);
+	                }
+	                else {
+	                    tabs.next();
+	                }
+	                doRotateTabs();
+	            }, rotateDelay);
+	        }
+	    }
+	    doRotateTabs();
 	});
-	
-		
+
+
 	$('div.movie').flash({
 		swf: '/flash/assets/swfplayer/player.swf',
 		height: 353,
@@ -38,23 +38,23 @@ $(document).ready(function() {
 			image: '/flash/assets/snowsports_promo_09.jpg'
 			}
 	});
-	
-	
-	
+
+
+
 	$('ul#promos li p').css('right', '-250px');
-	
-	var onMouseOver = function() { 
+
+	var onMouseOver = function() {
 		$(this).stop();
 		$(this).find('p').stop().animate({right: '0px'}, 200)
 	};
-	
-	var onMouseOut = function() { 
+
+	var onMouseOut = function() {
 		$(this).find('p').stop().animate({right: '-250px'}, 200)
 	};
-	
+
 	$('ul#promos li').hover(onMouseOver, onMouseOut);
-	
-	
+
+
 });
 </script>
 <% end %>
@@ -72,28 +72,26 @@ $(document).ready(function() {
 			<ul>
 				<% @news.each do |item| %>
 				<li>
-					<%= link_to image_tag(item.image(:thumbnail)), url_for_page(item)%>
 					<h4><%= link_to_page(item) %></h4>
 					<h5><%= format_date(item.publish_date)%></h5>
-					<p><%= truncate(item.intro, :length => 275) %></p>
+					<p><%= truncate(item.intro, :length => 150) %></p>
 				</li>
 				<% end %>
 			</ul>
 		</div>
+		<div class="events news">
+			<h2><%= s("NEXT EVENT") %></h2>
+			<ul>
+				<li>
+					<%= datebox(@event.start_time.to_time) %>
+					<h4><%= link_to(@event.name, event_path(@event[:id])) %></h4>
+					<h5><%= @event.location %></h5>
+					<p><%= truncate(@event.description, :length => 250) %></p>
+				</li>
+			</ul>
+		</div>
 		<div class="facebook">
 			<fb:like-box href="http://www.facebook.com/leedsmetsnowsports" width="300" show_faces="true" border_color="" stream="false" header="false"></fb:like-box>
-			<!--
-			<h2><%= s("NEXT EVENTS") %></h2>
-			<ul>
-				<% @events.each do |event| %>
-				<li>
-					<%= datebox(event.start) %>
-					<h4><%= link_to event.title, event_path(event) %></h4>
-					<p><%= event.address %></p>
-				</li>
-				<% end %>
-			</ul>
-			-->	
 		</div>
 	</div>
 	<ul id="promos">

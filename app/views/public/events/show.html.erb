@@ -1,36 +1,22 @@
 <% content_for :support do %>
-	<h2><%= @root_page.to_s %></h2>
-	<% Event.limited.group_by(&:event_month).sort.each do |event_month, archive| %>
-	<div id="month_<%= event_month %>" class="archive">
-		<ul class="nav">
-			<li class="withsubnav"><a href="#"><%= Date::MONTHNAMES[event_month] %></a>
-			<ul>
-			<% archive.each do |event| %>
-				<li><a href="<%= event_path event %>" title="<%= event.title %>"><%= event.title %></a></li>
-			<% end %>
-			</ul>
-			</li>
-		</ul>
-	</div>
-	<% end %>
 	<%= render :partial => 'public/shared/news' %>
 <% end %>
 
-<h1><%= h @event.title %></h1>
-<h2 class="sub"><%= @event.start.to_s(:long) %></h2>
+
+
+<h1><%= h @event.name %></h1>
+<h2 class="sub"><%= @event.start_time.to_time.to_s(:long) %></h2>
 <div class="copy" style="margin-right:20px;">
-	<% if @event.intro %>
-		<div id="intro"><p><%= h @event.intro %></p></div>
-	<% end %>
-</div>
-<div class="copy" style="margin-right:20px;">
-	<img src="<%= "http://maps.google.com/maps/api/staticmap?center=#{@event.lat},#{@event.lng}&amp;zoom=14&amp;size=300x200&amp;key=#{google_maps_key}&amp;sensor=false&amp;markers=color:red|#{@event.lat},#{@event.lng}" %>" alt="Google maps location" />
-	<% if @event.image %>
-		<%= link_to image_tag(@event.image(:medium)), @event.image(:large) %>
+	<% unless @event.venue[:id].nil? %>
+		<% venue = Facebook.get_object(@event.venue[:id]) %>
+		<img src="<%= "http://maps.google.com/maps/api/staticmap?center=#{venue.location.latitude},#{venue.location.longitude}&amp;zoom=14&amp;size=300x200&amp;key=#{google_maps_key}&amp;sensor=false&amp;markers=color:red|#{venue.location.latitude},#{venue.location.longitude}" %>" alt="Google maps location" />
+		<h3><%= @event.venue.name %></h3>
+	<% else %>
+		<h3><%= @event.venue.name %></h3>
 	<% end %>
 	<div class="datetime">
-	<h4><span>Start Time:</span> <%= @event.start.strftime("%I:%M %p")%></h4>
-	<h4><span>Finish Time:</span> <%= @event.finish.strftime("%I:%M %p")%></h4>
+	<h4><span>Start Time:</span> <%= @event.start_time.to_time.strftime("%I:%M %p")%></h4>
+	<h4><span>Finish Time:</span> <%= @event.end_time.to_time.strftime("%I:%M %p")%></h4>
 	</div>
- 	<%= @event.body %>
+ 	<%= auto_link(textilize(@event.description)) %>
 </div>

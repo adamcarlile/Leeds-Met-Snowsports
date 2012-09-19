@@ -970,7 +970,14 @@ div#newsevents
 div#newsevents div.news
 {
 	float:left;
-	width:629px;
+	width:300px;
+}
+
+div#newsevents div.events
+{
+	float: left;
+	width: 300px;
+	margin-left: 20px;
 }
 
 div#newsevents div.news ul li
@@ -1037,20 +1044,13 @@ div#newsevents div.news h2 span.white, div#newsevents div.events h2 span.white
 	color:#41B3D3 !important;
 }
 
-div#newsevents div.events
-{
-	float:left;
-	width:308px;
-}
-
-
 div#newsevents div.events h2
 {
 	margin-right:0px;
 	margin-left:10px;
 }
 
-div.divider.event div.datebox
+div.event div.datebox
 {
 	float:right;
 	margin-right:0px;

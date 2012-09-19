@@ -17,17 +17,9 @@
 <% end %>
 
 <%= render 'public/shared/page_body' %>
-<% @events_list.each do |event| %>
+<% @events.each do |event| %>
 <div class="divider">
-	<%= datebox(event.start) %>
-	<h2><%= link_to "#{event.title}", event_path(event) %></h2>
-	<h3><%= event.address %></h3>
-	<h4><%= content_tag('strong', event.start.strftime("%b %d, %Y - %I:%M %p")) %><%= " until " + content_tag('strong', event.finish.strftime("%b %d, %Y - %I:%M %p")) %></h4>
-	<% if event.image %>
-		<%= link_to image_tag(event.image(:thumbnail)), event_path(event) %>
-	<% end %>
-	<p><%= event.intro %>&nbsp;<%= link_to 'Read more', event_path(event), :class => 'more' %>
-	</p>
+	<%= datebox(event.start_time.to_time) %>
+	<h2><%= link_to event.name, event_path(event[:id]) %></h2>
 </div>
 <% end %>
-<%= will_paginate @events_list %>
