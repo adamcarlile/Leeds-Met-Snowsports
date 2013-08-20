@@ -12,7 +12,7 @@ module Public::PageTypes
     @random_images = GalleryImage.all(:order => 'RAND()', :limit => 6)
     @promos_top = Promo.top
     @news = NewsItem.homepage
-    @event = Facebook.get_object(@events.first[:id])
+    @event = Facebook.get_object(@events.first[:id]) unless @events.nil?
     render(:template => 'public/page_types/homepage', :layout => 'layouts/homepage') and @rendered = true
   end
 
