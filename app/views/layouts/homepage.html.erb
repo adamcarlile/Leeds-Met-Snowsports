@@ -81,14 +81,16 @@ $(document).ready(function() {
 		</div>
 		<div class="events news">
 			<h2><%= s("NEXT EVENT") %></h2>
-			<ul>
-				<li>
-					<%= datebox(@event.start_time.to_time) %>
-					<h4><%= link_to(@event.name, event_path(@event[:id])) %></h4>
-					<h5><%= @event.location %></h5>
-					<p><%= truncate(@event.description, :length => 250) %></p>
-				</li>
-			</ul>
+			<% if @event %>
+			    <ul>
+			    	<li>
+			    		<%= datebox(@event.start_time.to_time) %>
+			    		<h4><%= link_to(@event.name, event_path(@event[:id])) %></h4>
+			    		<h5><%= @event.location %></h5>
+			    		<p><%= truncate(@event.description, :length => 250) %></p>
+			    	</li>
+			    </ul>
+			<% end %>
 		</div>
 		<div class="facebook">
 			<fb:like-box href="http://www.facebook.com/leedsmetsnowsports" width="300" show_faces="true" border_color="" stream="false" header="false"></fb:like-box>
