@@ -17,9 +17,11 @@
 <% end %>
 
 <%= render 'public/shared/page_body' %>
-<% @events.each do |event| %>
-<div class="divider">
-	<%= datebox(event.start_time.to_time) %>
-	<h2><%= link_to event.name, event_path(event[:id]) %></h2>
-</div>
+<% if @events %>
+	<% @events.each do |event| %>
+	<div class="divider">
+		<%= datebox(event.start_time.to_time) %>
+		<h2><%= link_to event.name, event_path(event[:id]) %></h2>
+	</div>
+	<% end %>
 <% end %>
